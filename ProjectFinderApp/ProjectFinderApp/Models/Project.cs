@@ -19,6 +19,7 @@ namespace ProjectFinderApp.Models
         public string Supplies { get; set; }
         public string PublisherLink { get; set; }
         public string OnlineLink { get; set; }
+        public string FilePath { get; set; }
         public virtual Magazine Magazine { get; set; }
         public virtual Issue Issue { get; set; }
         public virtual ICollection<FilePath> FilePaths { get; set; }
