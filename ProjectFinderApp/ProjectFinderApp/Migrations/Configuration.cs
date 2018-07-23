@@ -1,5 +1,6 @@
 namespace ProjectFinderApp.Migrations
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -18,6 +19,14 @@ namespace ProjectFinderApp.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
+            context.Roles.AddOrUpdate(
+                s => s.Name,
+                new IdentityRole { Name = "Admin" },
+                new IdentityRole { Name = "Registered User" },
+                new IdentityRole { Name = "Subscriber" }
+                );
+
         }
     }
 }

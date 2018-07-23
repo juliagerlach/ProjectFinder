@@ -1,7 +1,10 @@
-﻿namespace ProjectFinderApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjectFinderApp.Models
 {
     public class FilePath
     {
+        [Key]
         public int FilePathId { get; set; }
         public string FileName { get; set; }
         public FileType FileType { get; set; }

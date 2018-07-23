@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ProjectFinderApp.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Issue.IssueMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Magazine.MagazineTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectDesigner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Technique)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublisherLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnlineLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Issue.IssueMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Magazine.MagazineTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectDesigner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Technique)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublisherLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnlineLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilePath)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProjectID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectID })
+        </td>
+    </tr>
+}
+
+</table>

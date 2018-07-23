@@ -11,6 +11,7 @@ namespace ProjectFinderApp.Models
     {
         [Key]
         public int ProjectID { get; set; }
+        public int PageNumber { get; set; }
         public string ProjectTitle { get; set; }
         public string ProjectDesigner { get; set; }
         public int MagazineID { get; set; }
