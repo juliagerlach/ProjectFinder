@@ -1,6 +1,7 @@
 ﻿namespace ProjectFinderApp.Models
 {
-    public class FileType
+    public enum FileType
     {
+        Avatar = 1, Photo
     }
 }
