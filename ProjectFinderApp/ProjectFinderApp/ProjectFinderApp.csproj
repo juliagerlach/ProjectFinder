@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\RegisteredUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -296,6 +297,11 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\_LayoutRegisteredUser.cshtml" />
     <Content Include="Views\Shared\_LayoutSubscriber.cshtml" />
+    <Content Include="Views\RegisteredUser\Index.cshtml" />
+    <Content Include="Views\RegisteredUser\Create.cshtml" />
+    <Content Include="Views\RegisteredUser\Delete.cshtml" />
+    <Content Include="Views\RegisteredUser\Details.cshtml" />
+    <Content Include="Views\RegisteredUser\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
