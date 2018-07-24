@@ -185,7 +185,7 @@ namespace ProjectFinderApp.Controllers
                             // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                             // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                            return RedirectToAction("Create", "Home");
+                            return RedirectToAction("Create", "Admins");
                         }
                         else
                         {
@@ -206,6 +206,21 @@ namespace ProjectFinderApp.Controllers
                             AddErrors(result);
                         }
                     }
+
+                    else if (model.Role == "Subscriber")
+                    {
+                        userManager.AddToRole(user.Id, "Subscriber");
+
+                        if (result.Succeeded)
+                        {
+                            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                            return RedirectToAction("Create", "Subscriber");
+                        }
+                        else
+                        {
+                            AddErrors(result);
+                        }
+                    }
                     else
                     {
                         return View(model);
@@ -215,6 +230,7 @@ namespace ProjectFinderApp.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
 
         //
         // GET: /Account/ConfirmEmail
