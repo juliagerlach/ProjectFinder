@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201807231921555_Initial migration.Designer.cs">
       <DependentUpon>201807231921555_Initial migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807242216428_model update.cs" />
+    <Compile Include="Migrations\201807242216428_model update.Designer.cs">
+      <DependentUpon>201807242216428_model update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -226,6 +230,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-slate.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -328,6 +333,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807231921555_Initial migration.resx">
       <DependentUpon>201807231921555_Initial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807242216428_model update.resx">
+      <DependentUpon>201807242216428_model update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

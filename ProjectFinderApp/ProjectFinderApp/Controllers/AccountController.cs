@@ -199,7 +199,7 @@ namespace ProjectFinderApp.Controllers
                         if (result.Succeeded)
                         {
                             await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                            return RedirectToAction("Create", "RegisteredUsers");
+                            return RedirectToAction("Create", "RegisteredUser");
                         }
                         else
                         {

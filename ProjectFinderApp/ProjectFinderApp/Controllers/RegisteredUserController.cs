@@ -13,7 +13,7 @@ namespace ProjectFinderApp.Controllers
     public class RegisteredUserController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: RegisteredUser
+        // GET: RegisteredUsers
         public ActionResult Index()
         {
             return View(db.RegisteredUsers.ToList());

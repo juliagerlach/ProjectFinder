@@ -27,7 +27,7 @@ namespace ProjectFinderApp
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrapSimplex.css",
+                      "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }
