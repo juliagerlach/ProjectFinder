@@ -58,11 +58,11 @@ namespace ProjectFinderApp
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "763184111206-tmm2ac2g3gcp7l9o8tovf1809er31e4h.apps.googleusercontent.com",
+                ClientSecret = "YLneVxaoCJhrpOaYeC4nDh-E"
+            });
         }
     }
 }

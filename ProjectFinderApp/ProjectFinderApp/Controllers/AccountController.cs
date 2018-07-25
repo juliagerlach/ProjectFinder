@@ -194,7 +194,7 @@ namespace ProjectFinderApp.Controllers
                     }
                     else if (model.Role == "Registered User")
                     {
-                        userManager.AddToRole(user.Id, "RegisteredUser");
+                        userManager.AddToRole(user.Id, "Registered User");
 
                         if (result.Succeeded)
                         {
