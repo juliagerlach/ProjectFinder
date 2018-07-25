@@ -7,6 +7,6 @@ namespace ProjectFinderApp
 {
     public partial class keys
     {
-        public const string GOOGLEMAPS_API_KEY = 
+        //public const string GOOGLEMAPS_API_KEY = 
     }
 }

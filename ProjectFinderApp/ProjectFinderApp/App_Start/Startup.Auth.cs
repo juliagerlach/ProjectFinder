@@ -54,9 +54,9 @@ namespace ProjectFinderApp
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "271867580062586",
+               appSecret: "f9c4189ee9a3e78b488afe61babe6af6");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
