@@ -55,13 +55,13 @@ namespace ProjectFinderApp
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "271867580062586",
-               appSecret: "f9c4189ee9a3e78b488afe61babe6af6");
+               appId: keys.fbauthappId,
+               appSecret: keys.fbauthappSecret);
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "763184111206-tmm2ac2g3gcp7l9o8tovf1809er31e4h.apps.googleusercontent.com",
-                ClientSecret = "YLneVxaoCJhrpOaYeC4nDh-E"
+                ClientId = keys.googleauthclientid,
+                ClientSecret = keys.googleauthclientsecret
             });
         }
     }
