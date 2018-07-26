@@ -47,6 +47,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SaasEcom.Core, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SaasEcom.Core.1.1.3\lib\net45\SaasEcom.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe.net, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.2.7.2\lib\net40\Stripe.net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -197,10 +203,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\BillingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RegisteredUserController.cs" />
+    <Compile Include="Controllers\StripeWebhooksController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -229,6 +237,7 @@
     <Compile Include="Models\Subscriber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\Billing\ViewModels\FlashViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-journal.css" />
@@ -237,6 +246,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\card-icons\American Express.png" />
+    <Content Include="Content\card-icons\Dinners Club.png" />
+    <Content Include="Content\card-icons\Discover.png" />
+    <Content Include="Content\card-icons\JCB.png" />
+    <Content Include="Content\card-icons\maestro.png" />
+    <Content Include="Content\card-icons\MasterCard.png" />
+    <Content Include="Content\card-icons\Visa.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -266,6 +282,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\saasecom.card.form.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -323,6 +340,19 @@
     <Content Include="Views\Subscriber\Edit.cshtml" />
     <Content Include="Views\Subscriber\Delete.cshtml" />
     <Content Include="Views\Subscriber\Details.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CreditCard.cshtml" />
+    <Content Include="Views\Shared\Alert.cshtml" />
+    <Content Include="Views\Billing\_Subscriptions.cshtml" />
+    <Content Include="Views\Billing\_PaymentDetails.cshtml" />
+    <Content Include="Views\Billing\_Invoices.cshtml" />
+    <Content Include="Views\Billing\_BillingAddress.cshtml" />
+    <Content Include="Views\Billing\Invoice.cshtml" />
+    <Content Include="Views\Billing\Index.cshtml" />
+    <Content Include="Views\Billing\ChangeSubscription.cshtml" />
+    <Content Include="Views\Billing\ChangeCreditCard.cshtml" />
+    <Content Include="Views\Billing\CancelSubscription.cshtml" />
+    <Content Include="Views\Billing\BillingAddress.cshtml" />
+    <Content Include="Views\Billing\AddCreditCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
