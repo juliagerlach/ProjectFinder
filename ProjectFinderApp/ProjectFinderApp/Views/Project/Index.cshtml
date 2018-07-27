@@ -7,7 +7,11 @@
 <h2>Search for Projects</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm())
+    {
+        <p> Search For: @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Filter" /></p>
+    }
 </p>
 <table class="table">
     <tr>
