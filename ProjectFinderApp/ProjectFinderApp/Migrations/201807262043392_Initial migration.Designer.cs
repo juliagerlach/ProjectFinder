@@ -7,13 +7,13 @@ namespace ProjectFinderApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class modelupdate : IMigrationMetadata
+    public sealed partial class Initialmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(modelupdate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initialmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807242216428_model update"; }
+            get { return "201807262043392_Initial migration"; }
         }
         
         string IMigrationMetadata.Source

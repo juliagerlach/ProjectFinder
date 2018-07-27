@@ -52,6 +52,9 @@ namespace ProjectFinderApp.Controllers
             subscriber.ApplicationUserID = currentUserId;
             if (ModelState.IsValid)
             {
+                subscriber.SubscriptionActive = true;
+                subscriber.SubscriptionStartDate = DateTime.Now;
+                subscriber.SubscriptionEndDate = subscriber.SubscriptionStartDate.AddDays(30);
                 db.Subscribers.Add(subscriber);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");

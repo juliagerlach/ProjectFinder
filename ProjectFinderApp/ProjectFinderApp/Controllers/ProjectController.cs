@@ -15,9 +15,14 @@ namespace ProjectFinderApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Project
-        public ActionResult Index()
+        public ActionResult Index(string  searchString)
         {
-            var projects = db.Projects.Include(p => p.Issue).Include(p => p.Magazine);
+            var projects = from p in db.Projects select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                projects = projects.Where(p => p.ProjectTitle.Contains(searchString) || p.ProjectDesigner.Contains(searchString) || p.Supplies.Contains(searchString) || p.Technique.Contains(searchString));
+            }
             return View(projects.ToList());
         }
 

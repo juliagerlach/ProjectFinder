@@ -85,7 +85,7 @@ namespace ProjectFinderApp.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
         
-        [Display(Name = "Role")]
+        [Display(Name = "Registration Type")]
         public string Role { get; set; }
         public IEnumerable<IdentityRole> AspNetRoles { get; set; }
     }

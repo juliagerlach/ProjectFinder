@@ -50,11 +50,15 @@ namespace ProjectFinderApp.Controllers
         {
             var currentUserId = User.Identity.GetUserId();
             registeredUser.ApplicationUserID = currentUserId;
+            
             if (ModelState.IsValid)
             {
+                registeredUser.AccessActive = true;
+                registeredUser.AccessStartDate = DateTime.Now;
+                registeredUser.AccessEndDate = registeredUser.AccessStartDate.AddDays(30);
                 db.RegisteredUsers.Add(registeredUser);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Details", "RegisteredUser");
             }
 
             return View(registeredUser);

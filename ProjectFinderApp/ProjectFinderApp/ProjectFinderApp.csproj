@@ -201,26 +201,20 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ClientKeys.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
-    <Compile Include="Controllers\BillingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RegisteredUserController.cs" />
-    <Compile Include="Controllers\StripeWebhooksController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="keys.cs" />
-    <Compile Include="Migrations\201807231921555_Initial migration.cs" />
-    <Compile Include="Migrations\201807231921555_Initial migration.Designer.cs">
-      <DependentUpon>201807231921555_Initial migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807242216428_model update.cs" />
-    <Compile Include="Migrations\201807242216428_model update.Designer.cs">
-      <DependentUpon>201807242216428_model update.cs</DependentUpon>
+    <Compile Include="Migrations\201807262043392_Initial migration.cs" />
+    <Compile Include="Migrations\201807262043392_Initial migration.Designer.cs">
+      <DependentUpon>201807262043392_Initial migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -371,11 +365,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807231921555_Initial migration.resx">
-      <DependentUpon>201807231921555_Initial migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807242216428_model update.resx">
-      <DependentUpon>201807242216428_model update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807262043392_Initial migration.resx">
+      <DependentUpon>201807262043392_Initial migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
