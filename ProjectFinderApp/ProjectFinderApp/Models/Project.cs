@@ -12,9 +12,17 @@ namespace ProjectFinderApp.Models
         [Key]
         public int ProjectID { get; set; }
         public int PageNumber { get; set; }
+
+        [Display(Name="Project Title")]
         public string ProjectTitle { get; set; }
+
+        [Display(Name ="Designer")]
         public string ProjectDesigner { get; set; }
+
+        [Display(Name="Magazine")]
         public int MagazineID { get; set; }
+
+        [Display(Name ="Issue")]
         public int IssueID { get; set; }
         public string Technique { get; set; }
         public string Supplies { get; set; }

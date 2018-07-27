@@ -10,31 +10,31 @@
     @using (Html.BeginForm())
     {
         <p> Search For: @Html.TextBox("SearchString") <br />
-        <input type="submit" value="Filter" /></p>
+        <input type="submit" value="Search" /></p>
     }
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Issue.IssueMonth)
+            @Html.ActionLink("Project Title", "Index", new { sortOrder = ViewBag.TitleSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Magazine.MagazineTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectDesigner)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PageNumber)
+            @Html.ActionLink("Designer", "Index", new { sortOrder = ViewBag.DesignerSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Technique)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Supplies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Magazine.MagazineTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Issue.IssueMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PublisherLink)

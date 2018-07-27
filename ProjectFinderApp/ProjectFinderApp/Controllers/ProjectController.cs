@@ -15,14 +15,34 @@ namespace ProjectFinderApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Project
-        public ActionResult Index(string  searchString)
+        public ActionResult Index(string sortOrder, string searchString)
         {
+            ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            ViewBag.DesignerSortParm = sortOrder == "Designer" ? "designer_desc" : "Designer"; 
+
             var projects = from p in db.Projects select p;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 projects = projects.Where(p => p.ProjectTitle.Contains(searchString) || p.ProjectDesigner.Contains(searchString) || p.Supplies.Contains(searchString) || p.Technique.Contains(searchString));
             }
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    projects = projects.OrderByDescending(p => p.ProjectTitle);
+                    break;
+                case "Designer":
+                    projects = projects.OrderBy(p => p.ProjectDesigner);
+                    break;
+                case "designer_desc":
+                    projects = projects.OrderByDescending(p => p.ProjectDesigner);
+                    break;
+                default:
+                    projects = projects.OrderBy(p => p.ProjectTitle);
+                    break;
+
+            }
+
             return View(projects.ToList());
         }
 
