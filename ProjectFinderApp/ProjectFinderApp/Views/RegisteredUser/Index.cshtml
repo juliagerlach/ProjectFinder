@@ -26,9 +26,7 @@
         <th>
             @Html.DisplayNameFor(model => model.AccessActive)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationUserID)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -49,9 +47,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.AccessActive)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApplicationUserID)
-        </td>
+        
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
             @Html.ActionLink("Details", "Details", new { id=item.UserID }) |

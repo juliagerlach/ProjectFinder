@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+<br />
+<h2>Account Details</h2>
 
 <div>
     <h4>Subscriber</h4>
@@ -90,17 +90,9 @@
             @Html.DisplayFor(model => model.SubscriptionActive)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplicationUserID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ApplicationUserID)
-        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SubscriberID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Manage Account", "Edit", new { id = Model.SubscriberID }) |
 </p>
