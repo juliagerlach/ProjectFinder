@@ -354,7 +354,7 @@
     <Content Include="Views\Billing\BillingAddress.cshtml" />
     <Content Include="Views\Billing\AddCreditCard.cshtml" />
     <Content Include="Views\Subscriber\Index.cshtml" />
-    <Content Include="Views\Subscriber\Thanks.cshtml" />
+    <Content Include="Views\Subscriber\ThankYou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

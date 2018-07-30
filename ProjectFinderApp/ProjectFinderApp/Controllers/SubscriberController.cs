@@ -184,25 +184,19 @@ namespace ProjectFinderApp.Controllers
 
             
 
-            return RedirectToAction("Thanks");
+            return RedirectToAction("Details");
         }
 
-        public ActionResult Thanks(int? id)
+        public ActionResult ThankYou()
         {
-            var currentUserId = User.Identity.GetUserId();
-            if (currentUserId == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Subscriber subscriber = db.Subscribers.Where(r => r.ApplicationUserID == currentUserId).FirstOrDefault();
-            if (subscriber == null)
-            {
-                return HttpNotFound();
-            }
-            return View();
+            
+            
+         TempData["alertMessage"] = "<script>alert('Thank you for subscribing!');</script>";
+            return View();   
+           
         }
 
-       
+
 
         public ActionResult Error()
         {
