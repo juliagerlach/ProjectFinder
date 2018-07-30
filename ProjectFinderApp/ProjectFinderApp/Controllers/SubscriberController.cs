@@ -52,7 +52,7 @@ namespace ProjectFinderApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Email,ApplicationUserId")] Subscriber subscriber)
+        public ActionResult Create([Bind(Include = "ID,Name,Email,ApplicationUserId,SubscriptionType")] Subscriber subscriber)
         {
             var currentUserId = User.Identity.GetUserId();
             subscriber.ApplicationUserID = currentUserId;
