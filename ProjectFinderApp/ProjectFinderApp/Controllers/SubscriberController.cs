@@ -54,6 +54,8 @@ namespace ProjectFinderApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,Email,ApplicationUserId,SubscriptionType")] Subscriber subscriber)
         {
+            
+
             var currentUserId = User.Identity.GetUserId();
             subscriber.ApplicationUserID = currentUserId;
             if (ModelState.IsValid)
@@ -68,7 +70,7 @@ namespace ProjectFinderApp.Controllers
                     db.Subscribers.Add(subscriber);
                     db.SaveChanges();
 
-                    return RedirectToAction("Index", "Subscriber");
+                    return RedirectToAction("Index1", "Subscriber");
                 }
 
                 else if (subscriber.SubscriptionType == "yearly")
@@ -87,12 +89,22 @@ namespace ProjectFinderApp.Controllers
             return View();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(Subscriber subscriber)
         {
-           
+            var currentUserId = User.Identity.GetUserId();
+            subscriber.ApplicationUserID = currentUserId;
 
-            var stripePublishKey = ConfigurationManager.AppSettings[ClientKeys.StripeApiPublishableKey];
-            ViewBag.StripePublishKey = stripePublishKey;
+            ViewBag.NotAKey = ClientKeys.StripeApiPublishableKey;
+
+            return View();
+        }
+
+        public ActionResult Index1(Subscriber subscriber)
+        {
+            var currentUserId = User.Identity.GetUserId();
+            subscriber.ApplicationUserID = currentUserId;
+
+            ViewBag.NotAKey = ClientKeys.StripeApiPublishableKey;
 
             return View();
         }
@@ -163,7 +175,7 @@ namespace ProjectFinderApp.Controllers
             base.Dispose(disposing);
         }
         [HttpPost]
-        public ActionResult Charge(string stripeToken, Subscriber subscriber)
+        public ActionResult YearlyCharge(string stripeToken, Subscriber subscriber)
         {
             var currentUserId = User.Identity.GetUserId();
             subscriber.ApplicationUserID = currentUserId;
@@ -183,6 +195,31 @@ namespace ProjectFinderApp.Controllers
             StripeCharge charge = service.Create(options);
 
             
+
+            return RedirectToAction("Details");
+        }
+
+        [HttpPost]
+        public ActionResult MonthlyCharge(string stripeToken, Subscriber subscriber)
+        {
+            var currentUserId = User.Identity.GetUserId();
+            subscriber.ApplicationUserID = currentUserId;
+            StripeConfiguration.SetApiKey(ClientKeys.StripeApiSecretKey);
+            var token = stripeToken;
+
+            var options = new StripeChargeCreateOptions
+            {
+                Amount = 200,
+                Currency = "usd",
+                Description = "Payment Amount",
+                SourceTokenOrExistingSourceId = token,
+
+            };
+
+            var service = new StripeChargeService();
+            StripeCharge charge = service.Create(options);
+
+
 
             return RedirectToAction("Details");
         }

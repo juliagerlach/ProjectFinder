@@ -239,7 +239,6 @@
     <Compile Include="Views\Billing\ViewModels\FlashViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="charge.js" />
     <Content Include="Content\bootstrap-journal.css" />
     <Content Include="Content\bootstrap-minty.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -355,6 +354,7 @@
     <Content Include="Views\Billing\AddCreditCard.cshtml" />
     <Content Include="Views\Subscriber\Index.cshtml" />
     <Content Include="Views\Subscriber\ThankYou.cshtml" />
+    <Content Include="Views\Subscriber\Index1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
