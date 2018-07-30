@@ -162,27 +162,43 @@ namespace ProjectFinderApp.Controllers
             }
             base.Dispose(disposing);
         }
-
-        public ActionResult Charge(string stripeEmail, string stripeToken, Subscriber subscriber)
+        [HttpPost]
+        public ActionResult Charge(string stripeToken, Subscriber subscriber)
         {
-            var customers = new StripeCustomerService();
-            var charges = new StripeChargeService();
+            var currentUserId = User.Identity.GetUserId();
+            subscriber.ApplicationUserID = currentUserId;
+            StripeConfiguration.SetApiKey(ClientKeys.StripeApiSecretKey);
+            var token = stripeToken;
 
-            var customer = customers.Create(new StripeCustomerCreateOptions
+            var options = new StripeChargeCreateOptions
             {
-                Email = stripeEmail,
-                SourceToken = stripeToken
-            });
+                Amount = 1000,
+                Currency = "usd",
+                Description = "Payment Amount",
+                SourceTokenOrExistingSourceId = token,
 
-            var charge = charges.Create(new StripeChargeCreateOptions
+            };
+
+            var service = new StripeChargeService();
+            StripeCharge charge = service.Create(options);
+
+            
+
+            return RedirectToAction("Thanks");
+        }
+
+        public ActionResult Thanks(int? id)
+        {
+            var currentUserId = User.Identity.GetUserId();
+            if (currentUserId == null)
             {
-                        Amount = subscriber.Payment,
-                        Description = "Payment Amount",
-                        Currency = "usd",
-                        CustomerId = customer.Id
-                    
-            });
-
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subscriber subscriber = db.Subscribers.Where(r => r.ApplicationUserID == currentUserId).FirstOrDefault();
+            if (subscriber == null)
+            {
+                return HttpNotFound();
+            }
             return View();
         }
 

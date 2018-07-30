@@ -5,17 +5,23 @@
 }
 <br />
 <h2>Secure Payment with Stripe</h2>
-<p>We use Stripe, a secure payment processing service, to handle payments. As our customer, you do not need to have a separate Stripe account set up and your payment details are kept safe and secure.</p>
-<form action="/Payment/Charge" method="POST">
+<p>We use Stripe, a secure payment processing service, to handle payments. <br />
+ It's easy to use -- you do not need to have a separate Stripe account set up. <br />
+ Your payment details are kept safe and secure with Stripe.</p>
+<form action="Subscriber/Charge" method="POST">
     <article>
-        <label>Amount: $10.00</label>
+        <label>Subscription Amount: $10.00</label>
     </article>
-    <script src="//checkout.stripe.com/checkout.js"
+    <script src="https://checkout.stripe.com/checkout.js"
             class="stripe-button"
-            data-key="@ViewBag.StripePublishKey"
+            data-key="pk_test_LRZjN5gi0J4KlgPP4bQM8mc6"
+            data-amount="1000"
+            data-name="Bead Project Finder"
+            data-curreency="usd"
+            data-description="Bead Project Finder subscription"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
             data-locale="auto"
-            data-description="Sample Charge"
-            data-amount="1000">
+            data-zip-code="true">
     </script>
 </form>
 
