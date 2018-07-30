@@ -50,11 +50,12 @@
     <Reference Include="SaasEcom.Core, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SaasEcom.Core.1.1.3\lib\net45\SaasEcom.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Stripe.net, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stripe.net.2.7.2\lib\net40\Stripe.net.dll</HintPath>
+    <Reference Include="Stripe.net, Version=17.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.17.6.0\lib\net45\Stripe.net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -216,6 +217,10 @@
     <Compile Include="Migrations\201807262043392_Initial migration.Designer.cs">
       <DependentUpon>201807262043392_Initial migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807300133528_subscribertable.cs" />
+    <Compile Include="Migrations\201807300133528_subscribertable.Designer.cs">
+      <DependentUpon>201807300133528_subscribertable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -329,7 +334,7 @@
     <Content Include="Views\RegisteredUser\Delete.cshtml" />
     <Content Include="Views\RegisteredUser\Details.cshtml" />
     <Content Include="Views\RegisteredUser\Edit.cshtml" />
-    <Content Include="Views\Subscriber\Index.cshtml" />
+    <Content Include="Views\Subscriber\List.cshtml" />
     <Content Include="Views\Subscriber\Create.cshtml" />
     <Content Include="Views\Subscriber\Edit.cshtml" />
     <Content Include="Views\Subscriber\Delete.cshtml" />
@@ -347,6 +352,7 @@
     <Content Include="Views\Billing\CancelSubscription.cshtml" />
     <Content Include="Views\Billing\BillingAddress.cshtml" />
     <Content Include="Views\Billing\AddCreditCard.cshtml" />
+    <Content Include="Views\Subscriber\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -367,6 +373,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807262043392_Initial migration.resx">
       <DependentUpon>201807262043392_Initial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807300133528_subscribertable.resx">
+      <DependentUpon>201807300133528_subscribertable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

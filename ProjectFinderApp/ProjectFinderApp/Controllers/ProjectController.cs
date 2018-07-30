@@ -10,6 +10,7 @@ using ProjectFinderApp.Models;
 
 namespace ProjectFinderApp.Controllers
 {
+    [Authorize(Roles = "Admin,RegisteredUser,Subscriber")]
     public class ProjectController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 using ProjectFinderApp.Models;
+using Stripe;
 
 [assembly: OwinStartupAttribute(typeof(ProjectFinderApp.Startup))]
 namespace ProjectFinderApp
@@ -15,6 +16,7 @@ namespace ProjectFinderApp
         {
             ConfigureAuth(app);
             createRoles();
+            
         }
 
         private void createRoles()

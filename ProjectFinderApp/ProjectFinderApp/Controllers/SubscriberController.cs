@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
 using ProjectFinderApp.Models;
+using Stripe;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -13,8 +15,12 @@ namespace ProjectFinderApp.Controllers
     public class SubscriberController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public int Amount { get; private set; }
+
+        
         // GET: Subscribers
-        public ActionResult Index()
+        public ActionResult List()
         {
             return View(db.Subscribers.ToList());
         }
@@ -52,15 +58,43 @@ namespace ProjectFinderApp.Controllers
             subscriber.ApplicationUserID = currentUserId;
             if (ModelState.IsValid)
             {
-                subscriber.SubscriptionActive = true;
-                subscriber.SubscriptionStartDate = DateTime.Now;
-                subscriber.SubscriptionEndDate = subscriber.SubscriptionStartDate.AddDays(30);
-                db.Subscribers.Add(subscriber);
-                db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+
+                if (subscriber.SubscriptionType == "monthly")
+                {
+                    subscriber.SubscriptionActive = true;
+                    subscriber.SubscriptionStartDate = DateTime.Now;
+                    subscriber.SubscriptionEndDate = subscriber.SubscriptionStartDate.AddDays(30);
+                    subscriber.Payment = 2;
+                    db.Subscribers.Add(subscriber);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index", "Subscriber");
+                }
+
+                else if (subscriber.SubscriptionType == "yearly")
+                {
+                    subscriber.SubscriptionActive = true;
+                    subscriber.SubscriptionStartDate = DateTime.Now;
+                    subscriber.SubscriptionEndDate = subscriber.SubscriptionStartDate.AddDays(365);
+                    subscriber.Payment = 10;
+                    db.Subscribers.Add(subscriber);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Subscriber");
+                }
+
             }
 
-            return View(subscriber);
+            return View();
+        }
+
+        public ActionResult Index()
+        {
+           
+
+            var stripePublishKey = ConfigurationManager.AppSettings[ClientKeys.StripeApiPublishableKey];
+            ViewBag.StripePublishKey = stripePublishKey;
+
+            return View();
         }
 
         // GET: Subscribers/Edit/5
@@ -127,6 +161,36 @@ namespace ProjectFinderApp.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Charge(string stripeEmail, string stripeToken, Subscriber subscriber)
+        {
+            var customers = new StripeCustomerService();
+            var charges = new StripeChargeService();
+
+            var customer = customers.Create(new StripeCustomerCreateOptions
+            {
+                Email = stripeEmail,
+                SourceToken = stripeToken
+            });
+
+            var charge = charges.Create(new StripeChargeCreateOptions
+            {
+                        Amount = subscriber.Payment,
+                        Description = "Payment Amount",
+                        Currency = "usd",
+                        CustomerId = customer.Id
+                    
+            });
+
+            return View();
+        }
+
+       
+
+        public ActionResult Error()
+        {
+            return View();
         }
     }
 }

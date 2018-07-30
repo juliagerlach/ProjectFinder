@@ -21,6 +21,7 @@ namespace ProjectFinderApp.Models
         public string SubscriptionType { get; set; }
         public DateTime SubscriptionStartDate { get; set; }
         public DateTime SubscriptionEndDate { get; set; }
+        public int Payment { get; set; }
         public bool SubscriptionActive { get; set; }
 
         public virtual ICollection<Payment> Payments { get; set; }
