@@ -355,6 +355,7 @@
     <Content Include="Views\Subscriber\Index.cshtml" />
     <Content Include="Views\Subscriber\ThankYou.cshtml" />
     <Content Include="Views\Subscriber\Index1.cshtml" />
+    <Content Include="Views\Home\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

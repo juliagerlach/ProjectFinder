@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Map";
+}
+
+
+    @*<style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px; /* The height is 400 pixels */
+            width: 100%; /* The width is the width of the web page */
+        }
+    </style>
+
+<br />*@
+<br />
+    <div class="row">
+        <h3>Bead Shop Finder</h3>
+        <!--The div element for the map -->
+        <div id="map"></div>
+        <script type="text/javascript">
+            S(document).ready(function () {
+                Initialize();
+            });
+            // Initialize and add the map
+            function Initialize() {
+                google.maps.visualRefresh = true;
+                var Tunisie = new google,maps.LatLng(36.81881, 10.16596);
+
+                var mapOptions = {
+                    zoom: 8,
+                    center: Tunisie.
+                        mapTypeId: google.maps.MapTypeId.F_NORMAL_MAP
+                };
+                var map = new google.maps.Map(
+                    document.getElementById("map_canvas"), mapOptions);
+
+                var data = [
+                    { "Id": 1, "PlaceName": "Zaghouan", "GeoLong": "36.401081", "GeoLat": "10.16596" },
+                    { "Id": 2, "PlaceName": "Hammamet", "GeoLong": "36.4", "GeoLat": "10.616667" },
+                    { "Id": 3, "PlaceName": "Sousse", "GeoLong": "36.8329809", "GeoLat": "10.63875" }
+                    { "Id": 4, "PlaceName": "Sfax", "GeoLong": "34.745159", "GeoLat": "10.7613" }
+                ];
+                
+                $.each(data, function (i, item) {
+                    var marker = new google.maps.Marker({
+                        'position': new goodle.maps.LatLng(item.GeoLong, item.GeoLat),
+                        'map': map,
+                        'title': item.PlaceName
+                    });
+
+                    marker.setIcon('http://masp.google.com/mapfiles/ms/icons/blue-dot.png')
+
+                    var infowindow - new google.maps.InfoWindow({
+                        content: "div class='infoDiv'><h2>" + item.PlaceName + "</div></div>"
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+                })
+                
+            }
+        </script>
+        <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=ClientKeys.googleauthclientsecret&callback=initMap">
+        </script>
+    </div>
+
+
+

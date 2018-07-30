@@ -29,5 +29,12 @@ namespace ProjectFinderApp.Controllers
             return View();
         }
 
+        public ActionResult Map()
+        {
+            ViewBag.Message = "Find a Bead Store Near You.";
+
+            return View();
+        }
+
     }
 }
