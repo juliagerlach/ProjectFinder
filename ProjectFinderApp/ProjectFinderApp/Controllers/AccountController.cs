@@ -416,7 +416,7 @@ namespace ProjectFinderApp.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Manage");
+                return RedirectToAction("Index", "Home");
             }
 
             if (ModelState.IsValid)
@@ -435,7 +435,7 @@ namespace ProjectFinderApp.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
+                        return RedirectToAction("Index", "Home");
                     }
                 }
                 AddErrors(result);
