@@ -26,17 +26,10 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplicationUserID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ApplicationUserID)
-        </dd>
-
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("See Registered Users", "Index", "RegisteredUser")
+    @Html.ActionLink("See Subscribers", "List", "Subscriber")
 </p>

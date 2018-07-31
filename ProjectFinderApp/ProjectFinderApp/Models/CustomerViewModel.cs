@@ -7,20 +7,21 @@ using System.Web;
 
 namespace ProjectFinderApp.Models
 {
-    public class RegisteredUser
+    public class CustomerViewModel
     {
         [Key]
-        public int UserID { get; set; }
-        [Display(Name = "User Name")]
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public DateTime AccessStartDate { get; set; }
-        public DateTime AccessEndDate { get; set; }
-        public bool AccessActive { get; set; }
-        public string AccessType { get; set; }
+        public int ID { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserID { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
+
+        [ForeignKey("Subscriber")]
+        public string SubscriptionType { get; set; }
+        public Subscriber Subscriber { get; set; }
+
+        [ForeignKey("RegisteredUser")]
+        public string AccessType { get; set; }
+        public RegisteredUser RegisteredUser { get; set; }
     }
 }

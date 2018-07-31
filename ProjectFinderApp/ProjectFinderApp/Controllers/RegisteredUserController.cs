@@ -53,6 +53,7 @@ namespace ProjectFinderApp.Controllers
             
             if (ModelState.IsValid)
             {
+                registeredUser.AccessType = "registered user";
                 registeredUser.AccessActive = true;
                 registeredUser.AccessStartDate = DateTime.Now;
                 registeredUser.AccessEndDate = registeredUser.AccessStartDate.AddDays(30);
