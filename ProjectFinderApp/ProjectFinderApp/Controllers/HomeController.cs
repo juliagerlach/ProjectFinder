@@ -32,6 +32,7 @@ namespace ProjectFinderApp.Controllers
         public ActionResult Map()
         {
             ViewBag.Message = "Find a Bead Store Near You.";
+            ViewBag.NotAGoogleKey = ClientKeys.googlemapsapi;
 
             return View();
         }

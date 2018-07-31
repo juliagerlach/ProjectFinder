@@ -1,76 +1,96 @@
 ﻿
-@{
+@*@{
     ViewBag.Title = "Map";
-}
+}*@
 
+<!DOCTYPE Html>
+<html>
+<head>
+    <title>Bead Shop Finder Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    @*<style>
-        /* Set the size of the div element that contains the map */
+    <style>
+
         #map {
-            height: 400px; /* The height is 400 pixels */
-            width: 100%; /* The width is the width of the web page */
+            height: 400px;
+            width: 100%;
         }
     </style>
+</head>
 
-<br />*@
-<br />
-    <div class="row">
-        <h3>Bead Shop Finder</h3>
-        <!--The div element for the map -->
-        <div id="map"></div>
-        <script type="text/javascript">
-            S(document).ready(function () {
-                Initialize();
-            });
-            // Initialize and add the map
-            function Initialize() {
-                google.maps.visualRefresh = true;
-                var Tunisie = new google,maps.LatLng(36.81881, 10.16596);
+<body>
+    <br />
+    <h3>Bead Shop Finder</h3>
+    <div id="map"></div>
+    <script>
+        function initMap() {
 
-                var mapOptions = {
-                    zoom: 8,
-                    center: Tunisie.
-                        mapTypeId: google.maps.MapTypeId.F_NORMAL_MAP
-                };
-                var map = new google.maps.Map(
-                    document.getElementById("map_canvas"), mapOptions);
-
-                var data = [
-                    { "Id": 1, "PlaceName": "Zaghouan", "GeoLong": "36.401081", "GeoLat": "10.16596" },
-                    { "Id": 2, "PlaceName": "Hammamet", "GeoLong": "36.4", "GeoLat": "10.616667" },
-                    { "Id": 3, "PlaceName": "Sousse", "GeoLong": "36.8329809", "GeoLat": "10.63875" }
-                    { "Id": 4, "PlaceName": "Sfax", "GeoLong": "34.745159", "GeoLat": "10.7613" }
-                ];
-                
-                $.each(data, function (i, item) {
-                    var marker = new google.maps.Marker({
-                        'position': new goodle.maps.LatLng(item.GeoLong, item.GeoLat),
-                        'map': map,
-                        'title': item.PlaceName
-                    });
-
-                    marker.setIcon('http://masp.google.com/mapfiles/ms/icons/blue-dot.png')
-
-                    var infowindow - new google.maps.InfoWindow({
-                        content: "div class='infoDiv'><h2>" + item.PlaceName + "</div></div>"
-                    });
-
-                    google.maps.event.addListener(marker, 'click', function () {
-                        infowindow.open(map, marker);
-                    });
-                })
-                
+            var options = {
+                zoom: 9,
+                center: { lat: 43.038902, lng: -87.906471 }
             }
-        </script>
-        <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
-    -->
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=ClientKeys.googleauthclientsecret&callback=initMap">
-        </script>
-    </div>
+
+            var map = new google.maps.Map(
+                document.getElementById('map'), options);
+
+
+            var markers = [
+                {
+                    coords: { lat: 43.038026, lng: -88.148276 },
+                    content: '<h1>Eclectica Beads</h1>)'
+                },
+                {
+                    coords: { lat: 43.089304, lng: -88.149800 },
+                    content: '<h1>Midwest Beads</h1>)'
+                },
+                {
+                    coords: { lat: 42.966207, lng: -88.008632 },
+                    content: '<h1>Knot Just Beads</h1>)'
+                },
+                {
+                    coords: { lat: 43.039160, lng: -87.906337 },
+                    content: '<h1>Planet Bead</h1>)'
+                },
+                {
+                    coords: { lat: 43.183576, lng: -89.212821 },
+                    content: '<h1>Meant To Bead</h1>)'
+                }
+            ];
+
+            for (var i = 0; i < markers.length; i++) {
+                addMarker(markers[i]);
+            }
+
+
+            function addMarker(props) {
+                var marker = new google.maps.Marker({
+                    position: props.coords,
+                    map: map
+                });
+
+                if (props.content) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: props.content
+                    });
+
+                    marker.addListener('click', function () {
+                        infoWindow.open(map, marker);
+                    });
+                }
+            }
+        }
+    </script>
+    
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=@ViewBag.NotAGoogleKey&callback=initMap">
+    </script>
+</body>
+</html>
+    
+    
+    
 
 
 
