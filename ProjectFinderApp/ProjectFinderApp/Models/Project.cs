@@ -23,6 +23,8 @@ namespace ProjectFinderApp.Models
         [Display(Name="Magazine")]
         public int MagazineID { get; set; }
 
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name ="Issue")]
         public int IssueID { get; set; }
         public string Technique { get; set; }
@@ -30,8 +32,8 @@ namespace ProjectFinderApp.Models
         public string OnlineLink { get; set; }
         public string FilePath { get; set; }
         public string FileName { get; set; }
+        public byte Image { get; set; }
         public virtual Magazine Magazine { get; set; }
-        public virtual Issue Issue { get; set; }
         public virtual ICollection<FilePath> FilePaths { get; set; }
     }
 }

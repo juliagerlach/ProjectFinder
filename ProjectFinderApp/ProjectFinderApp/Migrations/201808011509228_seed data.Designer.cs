@@ -7,13 +7,13 @@ namespace ProjectFinderApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class subscribertable : IMigrationMetadata
+    public sealed partial class seeddata : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(subscribertable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(seeddata));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807300133528_subscribertable"; }
+            get { return "201808011509228_seed data"; }
         }
         
         string IMigrationMetadata.Source

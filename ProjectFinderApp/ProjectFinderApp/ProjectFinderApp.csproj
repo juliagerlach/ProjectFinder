@@ -207,19 +207,28 @@
     <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PremiumContentController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RegisteredUserController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807262043392_Initial migration.cs" />
-    <Compile Include="Migrations\201807262043392_Initial migration.Designer.cs">
-      <DependentUpon>201807262043392_Initial migration.cs</DependentUpon>
+    <Compile Include="Migrations\201808011457364_initial.cs" />
+    <Compile Include="Migrations\201808011457364_initial.Designer.cs">
+      <DependentUpon>201808011457364_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807300133528_subscribertable.cs" />
-    <Compile Include="Migrations\201807300133528_subscribertable.Designer.cs">
-      <DependentUpon>201807300133528_subscribertable.cs</DependentUpon>
+    <Compile Include="Migrations\201808011509228_seed data.cs" />
+    <Compile Include="Migrations\201808011509228_seed data.Designer.cs">
+      <DependentUpon>201808011509228_seed data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808011806201_PremiumContent.cs" />
+    <Compile Include="Migrations\201808011806201_PremiumContent.Designer.cs">
+      <DependentUpon>201808011806201_PremiumContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808011812477_PremiumContents.cs" />
+    <Compile Include="Migrations\201808011812477_PremiumContents.Designer.cs">
+      <DependentUpon>201808011812477_PremiumContents.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -228,14 +237,13 @@
     <Compile Include="Models\FilePath.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\Magazine.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\RegisteredUser.cs" />
     <Compile Include="Models\Subscriber.cs" />
-    <Compile Include="Models\UserImages.cs" />
+    <Compile Include="Models\PremiumContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Views\Billing\ViewModels\FlashViewModels.cs" />
@@ -346,7 +354,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\saasecom.card.form.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -422,7 +432,9 @@
     <Content Include="Views\Home\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\Comments\" />
+    <Folder Include="Views\PremiumContent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -438,11 +450,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807262043392_Initial migration.resx">
-      <DependentUpon>201807262043392_Initial migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808011457364_initial.resx">
+      <DependentUpon>201808011457364_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807300133528_subscribertable.resx">
-      <DependentUpon>201807300133528_subscribertable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808011509228_seed data.resx">
+      <DependentUpon>201808011509228_seed data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011806201_PremiumContent.resx">
+      <DependentUpon>201808011806201_PremiumContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011812477_PremiumContents.resx">
+      <DependentUpon>201808011812477_PremiumContents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

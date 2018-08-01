@@ -22,22 +22,19 @@
             @Html.ActionLink("Designer", "Index", new { sortOrder = ViewBag.DesignerSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Technique)
+            @Html.ActionLink("Technique", "Index", new { sortOrder = ViewBag.TechniqueSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Supplies)
+            @Html.ActionLink("Supplies", "Index", new { sortOrder = ViewBag.SuppliesSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Magazine.MagazineTitle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Issue.IssueMonth)
+            @Html.DisplayNameFor(model => model.IssueID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PageNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PublisherLink)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.OnlineLink)
@@ -51,19 +48,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Issue.IssueMonth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Magazine.MagazineTitle)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.ProjectTitle)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProjectDesigner)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PageNumber)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Technique)
@@ -72,8 +60,15 @@
             @Html.DisplayFor(modelItem => item.Supplies)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PublisherLink)
+            @Html.DisplayFor(modelItem => item.Magazine.MagazineTitle)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IssueID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageNumber)
+        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.OnlineLink)
         </td>
@@ -81,9 +76,9 @@
             @Html.DisplayFor(modelItem => item.FilePath)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProjectID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProjectID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProjectID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProjectID })
         </td>
     </tr>
 }

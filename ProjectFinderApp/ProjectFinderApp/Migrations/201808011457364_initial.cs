@@ -3,7 +3,7 @@ namespace ProjectFinderApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initialmigration : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -99,29 +99,19 @@ namespace ProjectFinderApp.Migrations
                         ProjectID = c.Int(nullable: false, identity: true),
                         PageNumber = c.Int(nullable: false),
                         ProjectTitle = c.String(),
+                        ProjectType = c.String(),
                         ProjectDesigner = c.String(),
                         MagazineID = c.Int(nullable: false),
                         IssueID = c.Int(nullable: false),
                         Technique = c.String(),
                         Supplies = c.String(),
-                        PublisherLink = c.String(),
                         OnlineLink = c.String(),
                         FilePath = c.String(),
+                        FileName = c.String(),
                     })
                 .PrimaryKey(t => t.ProjectID)
-                .ForeignKey("dbo.Issues", t => t.IssueID, cascadeDelete: true)
                 .ForeignKey("dbo.Magazines", t => t.MagazineID, cascadeDelete: true)
-                .Index(t => t.MagazineID)
-                .Index(t => t.IssueID);
-            
-            CreateTable(
-                "dbo.Issues",
-                c => new
-                    {
-                        IssueID = c.Int(nullable: false),
-                        IssueMonth = c.String(),
-                    })
-                .PrimaryKey(t => t.IssueID);
+                .Index(t => t.MagazineID);
             
             CreateTable(
                 "dbo.Magazines",
@@ -159,6 +149,7 @@ namespace ProjectFinderApp.Migrations
                         SubscriptionType = c.String(),
                         SubscriptionStartDate = c.DateTime(nullable: false),
                         SubscriptionEndDate = c.DateTime(nullable: false),
+                        Payment = c.Int(nullable: false),
                         SubscriptionActive = c.Boolean(nullable: false),
                         ApplicationUserID = c.String(maxLength: 128),
                     })
@@ -176,6 +167,7 @@ namespace ProjectFinderApp.Migrations
                         AccessStartDate = c.DateTime(nullable: false),
                         AccessEndDate = c.DateTime(nullable: false),
                         AccessActive = c.Boolean(nullable: false),
+                        AccessType = c.String(),
                         ApplicationUserID = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.UserID)
@@ -201,7 +193,6 @@ namespace ProjectFinderApp.Migrations
             DropForeignKey("dbo.Payments", "SubscriberID", "dbo.Subscribers");
             DropForeignKey("dbo.Subscribers", "ApplicationUserID", "dbo.AspNetUsers");
             DropForeignKey("dbo.Projects", "MagazineID", "dbo.Magazines");
-            DropForeignKey("dbo.Projects", "IssueID", "dbo.Issues");
             DropForeignKey("dbo.FilePaths", "ProjectID", "dbo.Projects");
             DropForeignKey("dbo.Admins", "ApplicationUserID", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -211,7 +202,6 @@ namespace ProjectFinderApp.Migrations
             DropIndex("dbo.RegisteredUsers", new[] { "ApplicationUserID" });
             DropIndex("dbo.Subscribers", new[] { "ApplicationUserID" });
             DropIndex("dbo.Payments", new[] { "SubscriberID" });
-            DropIndex("dbo.Projects", new[] { "IssueID" });
             DropIndex("dbo.Projects", new[] { "MagazineID" });
             DropIndex("dbo.FilePaths", new[] { "ProjectID" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
@@ -225,7 +215,6 @@ namespace ProjectFinderApp.Migrations
             DropTable("dbo.Subscribers");
             DropTable("dbo.Payments");
             DropTable("dbo.Magazines");
-            DropTable("dbo.Issues");
             DropTable("dbo.Projects");
             DropTable("dbo.FilePaths");
             DropTable("dbo.AspNetUserRoles");

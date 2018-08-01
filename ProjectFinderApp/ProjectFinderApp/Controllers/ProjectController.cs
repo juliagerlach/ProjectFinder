@@ -19,7 +19,9 @@ namespace ProjectFinderApp.Controllers
         public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
-            ViewBag.DesignerSortParm = sortOrder == "Designer" ? "designer_desc" : "Designer"; 
+            ViewBag.DesignerSortParm = sortOrder == "Designer" ? "designer_desc" : "Designer";
+            ViewBag.TechniqueSortParm = sortOrder == "Supplies" ? "supplies_desc" : "Supplies";
+            ViewBag.TechniqueSortParm = sortOrder == "Technique" ? "technique_desc" : "Technique";
 
             var projects = from p in db.Projects select p;
 
@@ -37,6 +39,18 @@ namespace ProjectFinderApp.Controllers
                     break;
                 case "designer_desc":
                     projects = projects.OrderByDescending(p => p.ProjectDesigner);
+                    break;
+                case "Supplies":
+                    projects = projects.OrderBy(p => p.Supplies);
+                    break;
+                case "supplies_desc":
+                    projects = projects.OrderByDescending(p => p.Supplies);
+                    break;
+                case "Technique":
+                    projects = projects.OrderBy(p => p.Technique);
+                    break;
+                case "technique_desc":
+                    projects = projects.OrderByDescending(p => p.Technique);
                     break;
                 default:
                     projects = projects.OrderBy(p => p.ProjectTitle);
@@ -65,7 +79,6 @@ namespace ProjectFinderApp.Controllers
         // GET: Project/Create
         public ActionResult Create()
         {
-            ViewBag.IssueID = new SelectList(db.Issues, "IssueID", "IssueMonth");
             ViewBag.MagazineID = new SelectList(db.Magazines, "MagazineID", "MagazineTitle");
             return View();
         }
@@ -83,8 +96,6 @@ namespace ProjectFinderApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.IssueID = new SelectList(db.Issues, "IssueID", "IssueMonth", project.IssueID);
             ViewBag.MagazineID = new SelectList(db.Magazines, "MagazineID", "MagazineTitle", project.MagazineID);
             return View(project);
         }
@@ -101,7 +112,6 @@ namespace ProjectFinderApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IssueID = new SelectList(db.Issues, "IssueID", "IssueMonth", project.IssueID);
             ViewBag.MagazineID = new SelectList(db.Magazines, "MagazineID", "MagazineTitle", project.MagazineID);
             return View(project);
         }
@@ -119,7 +129,6 @@ namespace ProjectFinderApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IssueID = new SelectList(db.Issues, "IssueID", "IssueMonth", project.IssueID);
             ViewBag.MagazineID = new SelectList(db.Magazines, "MagazineID", "MagazineTitle", project.MagazineID);
             return View(project);
         }

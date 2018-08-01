@@ -37,9 +37,10 @@ namespace ProjectFinderApp.Models
         public DbSet<RegisteredUser> RegisteredUsers { get; set; }
         public DbSet<Subscriber> Subscribers { get; set; }
         public DbSet<Magazine> Magazines { get; set; }
-        public DbSet<Issue> Issues { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<FilePath> FilePaths { get; set; }
+        public DbSet<PremiumContent> PremiumContents { get; set; }
+
     }
 }
