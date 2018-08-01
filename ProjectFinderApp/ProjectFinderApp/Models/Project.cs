@@ -15,6 +15,7 @@ namespace ProjectFinderApp.Models
 
         [Display(Name="Project Title")]
         public string ProjectTitle { get; set; }
+        public string ProjectType { get; set; }
 
         [Display(Name ="Designer")]
         public string ProjectDesigner { get; set; }
@@ -26,9 +27,9 @@ namespace ProjectFinderApp.Models
         public int IssueID { get; set; }
         public string Technique { get; set; }
         public string Supplies { get; set; }
-        public string PublisherLink { get; set; }
         public string OnlineLink { get; set; }
         public string FilePath { get; set; }
+        public string FileName { get; set; }
         public virtual Magazine Magazine { get; set; }
         public virtual Issue Issue { get; set; }
         public virtual ICollection<FilePath> FilePaths { get; set; }

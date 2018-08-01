@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ProjectFinderApp.Models
 {
-    public class TblImages
+    public class UserImages
     {
         [Key]
         public int ImageId { get; set; }
