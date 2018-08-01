@@ -436,7 +436,7 @@
     <Content Include="Views\Home\Map.cshtml" />
     <Content Include="Views\PremiumContent\Index.cshtml" />
     <Content Include="Views\PremiumContent\Detail.cshtml" />
-    <Content Include="Views\Project\IndexA.cshtml" />
+    <Content Include="Views\Project\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

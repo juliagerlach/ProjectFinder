@@ -63,6 +63,53 @@ namespace ProjectFinderApp.Controllers
             return View(projects.ToList());
         }
 
+        public ActionResult IndexAdmin(string sortOrder, string searchString)
+        {
+            ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            ViewBag.DesignerSortParm = sortOrder == "Designer" ? "designer_desc" : "Designer";
+            ViewBag.TechniqueSortParm = sortOrder == "Supplies" ? "supplies_desc" : "Supplies";
+            ViewBag.TechniqueSortParm = sortOrder == "Technique" ? "technique_desc" : "Technique";
+            ViewBag.Image = Server.MapPath("~") + @"Content\Images\FilePath";
+            ViewBag.Image2 = db.Projects.Where(p => p.ProjectTitle.Length > 1).FirstOrDefault().FilePath;
+
+            var projects = from p in db.Projects select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                projects = projects.Where(p => p.ProjectTitle.Contains(searchString) || p.ProjectDesigner.Contains(searchString) || p.Supplies.Contains(searchString) || p.Technique.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    projects = projects.OrderByDescending(p => p.ProjectTitle);
+                    break;
+                case "Designer":
+                    projects = projects.OrderBy(p => p.ProjectDesigner);
+                    break;
+                case "designer_desc":
+                    projects = projects.OrderByDescending(p => p.ProjectDesigner);
+                    break;
+                case "Supplies":
+                    projects = projects.OrderBy(p => p.Supplies);
+                    break;
+                case "supplies_desc":
+                    projects = projects.OrderByDescending(p => p.Supplies);
+                    break;
+                case "Technique":
+                    projects = projects.OrderBy(p => p.Technique);
+                    break;
+                case "technique_desc":
+                    projects = projects.OrderByDescending(p => p.Technique);
+                    break;
+                default:
+                    projects = projects.OrderBy(p => p.ProjectTitle);
+                    break;
+
+            }
+
+            return View(projects.ToList());
+        }
+
         // GET: Project/Details/5
         public ActionResult Details(int? id)
         {
