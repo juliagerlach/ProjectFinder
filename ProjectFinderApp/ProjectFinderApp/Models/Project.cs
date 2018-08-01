@@ -11,28 +11,32 @@ namespace ProjectFinderApp.Models
     {
         [Key]
         public int ProjectID { get; set; }
+        [Display(Name = "Page #")]
         public int PageNumber { get; set; }
 
-        [Display(Name="Project Title")]
+        [Display(Name = "Project Title")]
         public string ProjectTitle { get; set; }
         public string ProjectType { get; set; }
 
-        [Display(Name ="Designer")]
+        [Display(Name = "Designer")]
         public string ProjectDesigner { get; set; }
 
-        [Display(Name="Magazine")]
+        [Display(Name = "Magazine")]
         public int MagazineID { get; set; }
 
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name ="Issue")]
+        [Display(Name = "Issue")]
         public int IssueID { get; set; }
         public string Technique { get; set; }
         public string Supplies { get; set; }
+        [Display(Name = "Online Link")]
         public string OnlineLink { get; set; }
+
+        [Display(Name = "Image")]
         public string FilePath { get; set; }
         public string FileName { get; set; }
-        public byte Image { get; set; }
+        
         public virtual Magazine Magazine { get; set; }
         public virtual ICollection<FilePath> FilePaths { get; set; }
     }

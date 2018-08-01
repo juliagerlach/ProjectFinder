@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201808011812477_PremiumContents.Designer.cs">
       <DependentUpon>201808011812477_PremiumContents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808012106342_Projects.cs" />
+    <Compile Include="Migrations\201808012106342_Projects.Designer.cs">
+      <DependentUpon>201808012106342_Projects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -266,77 +270,77 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\acornearrings.jpg" />
-    <Content Include="Images\africanqueen.jpg" />
-    <Content Include="Images\autumnleaves.jpg" />
-    <Content Include="Images\Baroquegardens.jpg" />
-    <Content Include="Images\beadedbraids.jpg" />
-    <Content Include="Images\BeadedCoaster.jpg" />
-    <Content Include="Images\BeadedEggstravagance.jpg" />
-    <Content Include="Images\beautifulbutterfly.jpg" />
-    <Content Include="Images\brilliantoverlay.jpg" />
-    <Content Include="Images\Buengersamibracelet.jpg" />
-    <Content Include="Images\Bunnybracelet.jpg" />
-    <Content Include="Images\capturedcrystals.jpg" />
-    <Content Include="Images\channelearrings.jpg" />
-    <Content Include="Images\constellationpendant.jpg" />
-    <Content Include="Images\contemposquares.jpg" />
-    <Content Include="Images\Crisscrossbuttonbracelet.jpg" />
-    <Content Include="Images\crystalchic.jpg" />
-    <Content Include="Images\crystallinecuff.jpg" />
-    <Content Include="Images\crystalnecklaces.jpg" />
-    <Content Include="Images\CubesandCircleshero.jpg" />
-    <Content Include="Images\Daisiesonthedouble.jpg" />
-    <Content Include="Images\diamonduoflowers.jpg" />
-    <Content Include="Images\doingdonuts.jpg" />
-    <Content Include="Images\domeofpearls.jpg" />
-    <Content Include="Images\DoubleVikingknitnecklace.jpg" />
-    <Content Include="Images\electiondayearrings.jpg" />
-    <Content Include="Images\featheredcrescent.jpg" />
-    <Content Include="Images\funkyfringe.jpg" />
-    <Content Include="Images\gaskellserpentineswirl.jpg" />
-    <Content Include="Images\Gogoearrings.jpg" />
-    <Content Include="Images\goingdutch.jpg" />
-    <Content Include="Images\Goinggreenbracelet.jpg" />
-    <Content Include="Images\heartsandvines.jpg" />
-    <Content Include="Images\Herringbonenecklace.jpg" />
-    <Content Include="Images\hodoyervictorianjpg.jpg" />
-    <Content Include="Images\ivytrails.jpg" />
-    <Content Include="Images\jayceebracelet.jpg" />
-    <Content Include="Images\kanlotusblossom.jpg" />
-    <Content Include="Images\karonfeatheryscalesjpg.jpg" />
-    <Content Include="Images\kinersonloombracelet.jpg" />
-    <Content Include="Images\lamhoneycomb.jpg" />
-    <Content Include="Images\Leafmotifbracelet.jpg" />
-    <Content Include="Images\Lotusflowernecklace.jpg" />
-    <Content Include="Images\magicarpet.jpg" />
-    <Content Include="Images\multistandnecklacejpg.jpg" />
-    <Content Include="Images\NeonLeavesbracelet.jpg" />
-    <Content Include="Images\ontheedgeeakin.jpg" />
-    <Content Include="Images\phoenixpendant.jpg" />
-    <Content Include="Images\provacativepearls.jpg" />
-    <Content Include="Images\pumpkinearrings.jpg" />
-    <Content Include="Images\radianttilesjpg.jpg" />
-    <Content Include="Images\rawtalent.jpg" />
-    <Content Include="Images\rayoflightearrings.jpg" />
-    <Content Include="Images\rhinestonehapsody.jpg" />
-    <Content Include="Images\rondeliciouscuff.jpg" />
-    <Content Include="Images\sextonombre.jpg" />
-    <Content Include="Images\shootingstars.jpg" />
-    <Content Include="Images\snowflowerorn.jpg" />
-    <Content Include="Images\solsticependant.jpg" />
-    <Content Include="Images\stylewithanedge.jpg" />
-    <Content Include="Images\sunsetharbor.jpg" />
-    <Content Include="Images\supercubebeadedbead.jpg" />
-    <Content Include="Images\surfinaroundthewaves.jpg" />
-    <Content Include="Images\temptingtreasures.jpg" />
-    <Content Include="Images\venetianwindow.jpg" />
-    <Content Include="Images\vintagerosettes.jpg" />
-    <Content Include="Images\waterfallpendantbugatti.jpg" />
-    <Content Include="Images\wavesofglass.jpg" />
-    <Content Include="Images\wintersnight.jpg" />
-    <Content Include="Images\wiredpendant.jpg" />
-    <Content Include="Images\zgodagofish.jpg" />
+    <Content Include="Content\Images\acornearrings.jpg" />
+    <Content Include="Content\Images\africanqueen.jpg" />
+    <Content Include="Content\Images\autumnleaves.jpg" />
+    <Content Include="Content\Images\Baroquegardens.jpg" />
+    <Content Include="Content\Images\beadedbraids.jpg" />
+    <Content Include="Content\Images\BeadedCoaster.jpg" />
+    <Content Include="Content\Images\BeadedEggstravagance.jpg" />
+    <Content Include="Content\Images\beautifulbutterfly.jpg" />
+    <Content Include="Content\Images\brilliantoverlay.jpg" />
+    <Content Include="Content\Images\Buengersamibracelet.jpg" />
+    <Content Include="Content\Images\Bunnybracelet.jpg" />
+    <Content Include="Content\Images\capturedcrystals.jpg" />
+    <Content Include="Content\Images\channelearrings.jpg" />
+    <Content Include="Content\Images\constellationpendant.jpg" />
+    <Content Include="Content\Images\contemposquares.jpg" />
+    <Content Include="Content\Images\Crisscrossbuttonbracelet.jpg" />
+    <Content Include="Content\Images\crystalchic.jpg" />
+    <Content Include="Content\Images\crystallinecuff.jpg" />
+    <Content Include="Content\Images\crystalnecklaces.jpg" />
+    <Content Include="Content\Images\CubesandCircleshero.jpg" />
+    <Content Include="Content\Images\Daisiesonthedouble.jpg" />
+    <Content Include="Content\Images\diamonduoflowers.jpg" />
+    <Content Include="Content\Images\doingdonuts.jpg" />
+    <Content Include="Content\Images\domeofpearls.jpg" />
+    <Content Include="Content\Images\DoubleVikingknitnecklace.jpg" />
+    <Content Include="Content\Images\electiondayearrings.jpg" />
+    <Content Include="Content\Images\featheredcrescent.jpg" />
+    <Content Include="Content\Images\funkyfringe.jpg" />
+    <Content Include="Content\Images\gaskellserpentineswirl.jpg" />
+    <Content Include="Content\Images\Gogoearrings.jpg" />
+    <Content Include="Content\Images\goingdutch.jpg" />
+    <Content Include="Content\Images\Goinggreenbracelet.jpg" />
+    <Content Include="Content\Images\heartsandvines.jpg" />
+    <Content Include="Content\Images\Herringbonenecklace.jpg" />
+    <Content Include="Content\Images\hodoyervictorianjpg.jpg" />
+    <Content Include="Content\Images\ivytrails.jpg" />
+    <Content Include="Content\Images\jayceebracelet.jpg" />
+    <Content Include="Content\Images\kanlotusblossom.jpg" />
+    <Content Include="Content\Images\karonfeatheryscalesjpg.jpg" />
+    <Content Include="Content\Images\kinersonloombracelet.jpg" />
+    <Content Include="Content\Images\lamhoneycomb.jpg" />
+    <Content Include="Content\Images\Leafmotifbracelet.jpg" />
+    <Content Include="Content\Images\Lotusflowernecklace.jpg" />
+    <Content Include="Content\Images\magicarpet.jpg" />
+    <Content Include="Content\Images\multistandnecklacejpg.jpg" />
+    <Content Include="Content\Images\NeonLeavesbracelet.jpg" />
+    <Content Include="Content\Images\ontheedgeeakin.jpg" />
+    <Content Include="Content\Images\phoenixpendant.jpg" />
+    <Content Include="Content\Images\provacativepearls.jpg" />
+    <Content Include="Content\Images\pumpkinearrings.jpg" />
+    <Content Include="Content\Images\radianttilesjpg.jpg" />
+    <Content Include="Content\Images\rawtalent.jpg" />
+    <Content Include="Content\Images\rayoflightearrings.jpg" />
+    <Content Include="Content\Images\rhinestonehapsody.jpg" />
+    <Content Include="Content\Images\rondeliciouscuff.jpg" />
+    <Content Include="Content\Images\sextonombre.jpg" />
+    <Content Include="Content\Images\shootingstars.jpg" />
+    <Content Include="Content\Images\snowflowerorn.jpg" />
+    <Content Include="Content\Images\solsticependant.jpg" />
+    <Content Include="Content\Images\stylewithanedge.jpg" />
+    <Content Include="Content\Images\sunsetharbor.jpg" />
+    <Content Include="Content\Images\supercubebeadedbead.jpg" />
+    <Content Include="Content\Images\surfinaroundthewaves.jpg" />
+    <Content Include="Content\Images\temptingtreasures.jpg" />
+    <Content Include="Content\Images\venetianwindow.jpg" />
+    <Content Include="Content\Images\vintagerosettes.jpg" />
+    <Content Include="Content\Images\waterfallpendantbugatti.jpg" />
+    <Content Include="Content\Images\wavesofglass.jpg" />
+    <Content Include="Content\Images\wintersnight.jpg" />
+    <Content Include="Content\Images\wiredpendant.jpg" />
+    <Content Include="Content\Images\zgodagofish.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -430,11 +434,13 @@
     <Content Include="Views\Subscriber\ThankYou.cshtml" />
     <Content Include="Views\Subscriber\Index1.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
+    <Content Include="Views\PremiumContent\Index.cshtml" />
+    <Content Include="Views\PremiumContent\Detail.cshtml" />
+    <Content Include="Views\Project\IndexA.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Comments\" />
-    <Folder Include="Views\PremiumContent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -461,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808011812477_PremiumContents.resx">
       <DependentUpon>201808011812477_PremiumContents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808012106342_Projects.resx">
+      <DependentUpon>201808012106342_Projects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

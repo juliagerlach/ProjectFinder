@@ -22,6 +22,8 @@ namespace ProjectFinderApp.Controllers
             ViewBag.DesignerSortParm = sortOrder == "Designer" ? "designer_desc" : "Designer";
             ViewBag.TechniqueSortParm = sortOrder == "Supplies" ? "supplies_desc" : "Supplies";
             ViewBag.TechniqueSortParm = sortOrder == "Technique" ? "technique_desc" : "Technique";
+            ViewBag.Image = Server.MapPath("~") + @"Content\Images\FilePath";
+            ViewBag.Image2 = db.Projects.Where(p => p.ProjectTitle.Length > 1).FirstOrDefault().FilePath;
 
             var projects = from p in db.Projects select p;
 

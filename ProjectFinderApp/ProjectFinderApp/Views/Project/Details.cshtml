@@ -3,13 +3,14 @@
 @{
     ViewBag.Title = "Details";
 }
-
+<br />
 <h2>Details</h2>
 
 <div>
     <h4>Project</h4>
     <hr />
     <dl class="dl-horizontal">
+        
         <dt>
             @Html.DisplayNameFor(model => model.ProjectTitle)
         </dt>
@@ -74,13 +75,7 @@
             @Html.DisplayFor(model => model.OnlineLink)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FilePath)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FilePath)
-        </dd>
+        
 
     </dl>
 </div>

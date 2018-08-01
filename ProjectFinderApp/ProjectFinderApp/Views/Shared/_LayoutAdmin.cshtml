@@ -17,9 +17,9 @@
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
 
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item">@Html.ActionLink("Search", "Index", "Project", new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Free Trial Users", "Index", "RegisteredUser", new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Subscribers", "List", "Subscriber", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Free Trial Users", "Index", "RegisteredUser", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Subscribers", "List", "Subscriber", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Search", "IndexAdmin", "Project", null, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("Bead Shop Finder", "Map", "Home", null, new { @class = "nav-link" })</li>
 
                 </ul>

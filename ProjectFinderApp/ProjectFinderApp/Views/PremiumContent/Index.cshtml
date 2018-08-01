@@ -1,0 +1,24 @@
+﻿@model ProjectFinderApp.Models.PremiumContent
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>@using (Html.BeginForm("Index", "PremiumContent", FormMethod.Post, new { enctype = "data" }))
+{
+    <div class="container">
+        <table>
+            <tr>Project Title</tr>
+            <tr>Technique</tr>
+            <tr>Supplies</tr>
+            <tr>
+                <td style="width:80px; height:50px"><label>Image</label>
+                <input type="file" name="file1" id="file1" style="width: 100%;"/><br /></td>
+                <td>
+                <label>File Path</label><input type="file" name="file2" id="file2" style="width:100%;" />
+                </td>
+                <td><input tpe="submit" value="Submit"/></td>
+            </tr>
+        </table>
+        </div>}
+
