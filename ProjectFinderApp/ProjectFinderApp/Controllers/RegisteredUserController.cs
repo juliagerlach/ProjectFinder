@@ -62,7 +62,7 @@ namespace ProjectFinderApp.Controllers
                 return RedirectToAction("Details", "RegisteredUser");
             }
 
-            return View(registeredUser);
+            return View();
         }
 
         // GET: RegisteredUsers/Edit/5
