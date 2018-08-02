@@ -41,6 +41,7 @@ namespace ProjectFinderApp.Models
         public DbSet<Payment> Payments { get; set; }
         public DbSet<FilePath> FilePaths { get; set; }
         public DbSet<PremiumContent> PremiumContents { get; set; }
+        public DbSet<Comments> Comments { get; set; }
 
     }
 }

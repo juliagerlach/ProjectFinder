@@ -122,6 +122,24 @@ namespace ProjectFinderApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ProjectID = id.Value;
+
+            var comments = db.Comments.Where(d => d.project.ProjectID.Equals(id.Value)).ToList();
+            ViewBag.Comments = comments;
+
+            var ratings = db.Comments.Where(d => d.project.ProjectID.Equals(id.Value)).ToList();
+            if (ratings.Count() > 0)
+            {
+                var ratingSum = ratings.Sum(d => d.Rating);
+                ViewBag.RatingSum = ratingSum;
+                var ratingCount = ratings.Count();
+                ViewBag.RatingCount = ratingCount;
+            }
+            else
+            {
+                ViewBag.RatingSum = 0;
+                ViewBag.RatingCount = 0;
+            }
             return View(project);
         }
 

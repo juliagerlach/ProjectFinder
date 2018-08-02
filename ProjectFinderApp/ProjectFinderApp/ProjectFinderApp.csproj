@@ -205,6 +205,7 @@
     <Compile Include="ClientKeys.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PremiumContentController.cs" />
@@ -233,6 +234,22 @@
     <Compile Include="Migrations\201808012106342_Projects.cs" />
     <Compile Include="Migrations\201808012106342_Projects.Designer.cs">
       <DependentUpon>201808012106342_Projects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808020229227_Comments.cs" />
+    <Compile Include="Migrations\201808020229227_Comments.Designer.cs">
+      <DependentUpon>201808020229227_Comments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808020259312_Comments1.cs" />
+    <Compile Include="Migrations\201808020259312_Comments1.Designer.cs">
+      <DependentUpon>201808020259312_Comments1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808020451377_Comment.cs" />
+    <Compile Include="Migrations\201808020451377_Comment.Designer.cs">
+      <DependentUpon>201808020451377_Comment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808020537356_Projects1.cs" />
+    <Compile Include="Migrations\201808020537356_Projects1.Designer.cs">
+      <DependentUpon>201808020537356_Projects1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -266,6 +283,8 @@
     <Content Include="Content\card-icons\maestro.png" />
     <Content Include="Content\card-icons\MasterCard.png" />
     <Content Include="Content\card-icons\Visa.png" />
+    <Content Include="Content\Images\StarFade.gif" />
+    <Content Include="Content\Images\StarGlow.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -437,6 +456,7 @@
     <Content Include="Views\PremiumContent\Index.cshtml" />
     <Content Include="Views\PremiumContent\Detail.cshtml" />
     <Content Include="Views\Project\IndexAdmin.cshtml" />
+    <Content Include="Views\Shared\_CommentBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -470,6 +490,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808012106342_Projects.resx">
       <DependentUpon>201808012106342_Projects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808020229227_Comments.resx">
+      <DependentUpon>201808020229227_Comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808020259312_Comments1.resx">
+      <DependentUpon>201808020259312_Comments1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808020451377_Comment.resx">
+      <DependentUpon>201808020451377_Comment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808020537356_Projects1.resx">
+      <DependentUpon>201808020537356_Projects1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

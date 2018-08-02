@@ -13,9 +13,9 @@ namespace ProjectFinderApp.Models
         public int CommentId { get; set; }
         public DateTime Timestamp { get; set; }
         public string Comment { get; set; }
+        public int Rating { get; set; }
 
-        [ForeignKey("ApplicationUser")]
-        public string UserName { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+        
+        public virtual Project project { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace ProjectFinderApp.Models
         public int IssueID { get; set; }
         public string Technique { get; set; }
         public string Supplies { get; set; }
-        [Display(Name = "Online Link")]
+        [Display(Name = "Find It Online")]
         public string OnlineLink { get; set; }
 
         [Display(Name = "Image")]
@@ -38,6 +38,6 @@ namespace ProjectFinderApp.Models
         public string FileName { get; set; }
         
         public virtual Magazine Magazine { get; set; }
-        public virtual ICollection<FilePath> FilePaths { get; set; }
+        
     }
 }
