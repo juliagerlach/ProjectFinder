@@ -42,7 +42,7 @@ namespace ProjectFinderApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(FormCollection form, Project projectThing)
+        public ActionResult Add(FormCollection form, Project projectDetail)
         {
             var comment = form["Comment"].ToString();
             var ProjectId = int.Parse(form["ProjectID"]);
@@ -51,7 +51,7 @@ namespace ProjectFinderApp.Controllers
 
             Comments artComment = new Comments()
             {
-                ProjectID = projectThing.ProjectID,
+                ProjectID = projectDetail.ProjectID,
                 project = Project,
                 Comment = comment,
                 Rating = rating,
@@ -61,7 +61,7 @@ namespace ProjectFinderApp.Controllers
             db.Comments.Add(artComment);
             db.SaveChanges();
 
-            return RedirectToAction("Details", "Project", Project);
+            return RedirectToAction("Details", "Project", new { id=projectDetail.ProjectID });
         }
 
         // POST: Comments/Create
@@ -127,6 +127,7 @@ namespace ProjectFinderApp.Controllers
             return View(comment);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Comments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
