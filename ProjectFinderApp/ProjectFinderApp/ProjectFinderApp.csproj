@@ -215,41 +215,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808011457364_initial.cs" />
-    <Compile Include="Migrations\201808011457364_initial.Designer.cs">
-      <DependentUpon>201808011457364_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808011509228_seed data.cs" />
-    <Compile Include="Migrations\201808011509228_seed data.Designer.cs">
-      <DependentUpon>201808011509228_seed data.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808011806201_PremiumContent.cs" />
-    <Compile Include="Migrations\201808011806201_PremiumContent.Designer.cs">
-      <DependentUpon>201808011806201_PremiumContent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808011812477_PremiumContents.cs" />
-    <Compile Include="Migrations\201808011812477_PremiumContents.Designer.cs">
-      <DependentUpon>201808011812477_PremiumContents.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808012106342_Projects.cs" />
-    <Compile Include="Migrations\201808012106342_Projects.Designer.cs">
-      <DependentUpon>201808012106342_Projects.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808020229227_Comments.cs" />
-    <Compile Include="Migrations\201808020229227_Comments.Designer.cs">
-      <DependentUpon>201808020229227_Comments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808020259312_Comments1.cs" />
-    <Compile Include="Migrations\201808020259312_Comments1.Designer.cs">
-      <DependentUpon>201808020259312_Comments1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808020451377_Comment.cs" />
-    <Compile Include="Migrations\201808020451377_Comment.Designer.cs">
-      <DependentUpon>201808020451377_Comment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808020537356_Projects1.cs" />
-    <Compile Include="Migrations\201808020537356_Projects1.Designer.cs">
-      <DependentUpon>201808020537356_Projects1.cs</DependentUpon>
+    <Compile Include="Migrations\201808071458481_Initial.cs" />
+    <Compile Include="Migrations\201808071458481_Initial.Designer.cs">
+      <DependentUpon>201808071458481_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -480,32 +448,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808011457364_initial.resx">
-      <DependentUpon>201808011457364_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808011509228_seed data.resx">
-      <DependentUpon>201808011509228_seed data.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808011806201_PremiumContent.resx">
-      <DependentUpon>201808011806201_PremiumContent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808011812477_PremiumContents.resx">
-      <DependentUpon>201808011812477_PremiumContents.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808012106342_Projects.resx">
-      <DependentUpon>201808012106342_Projects.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808020229227_Comments.resx">
-      <DependentUpon>201808020229227_Comments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808020259312_Comments1.resx">
-      <DependentUpon>201808020259312_Comments1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808020451377_Comment.resx">
-      <DependentUpon>201808020451377_Comment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808020537356_Projects1.resx">
-      <DependentUpon>201808020537356_Projects1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808071458481_Initial.resx">
+      <DependentUpon>201808071458481_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

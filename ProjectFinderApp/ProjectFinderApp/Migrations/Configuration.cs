@@ -129,4 +129,3 @@ namespace ProjectFinderApp.Migrations
         //  to avoid creating duplicate seed data.
     }
 }
-

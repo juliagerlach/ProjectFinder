@@ -3,7 +3,7 @@ namespace ProjectFinderApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -80,15 +80,16 @@ namespace ProjectFinderApp.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.FilePaths",
+                "dbo.Comments",
                 c => new
                     {
-                        FilePathId = c.Int(nullable: false, identity: true),
-                        FileName = c.String(),
-                        FileType = c.Int(nullable: false),
+                        CommentId = c.Int(nullable: false, identity: true),
+                        Timestamp = c.DateTime(nullable: false),
+                        Comment = c.String(),
+                        Rating = c.Int(nullable: false),
                         ProjectID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.FilePathId)
+                .PrimaryKey(t => t.CommentId)
                 .ForeignKey("dbo.Projects", t => t.ProjectID, cascadeDelete: true)
                 .Index(t => t.ProjectID);
             
@@ -121,6 +122,19 @@ namespace ProjectFinderApp.Migrations
                         MagazineTitle = c.String(),
                     })
                 .PrimaryKey(t => t.MagazineID);
+            
+            CreateTable(
+                "dbo.FilePaths",
+                c => new
+                    {
+                        FilePathId = c.Int(nullable: false, identity: true),
+                        FileName = c.String(),
+                        FileType = c.Int(nullable: false),
+                        ProjectID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.FilePathId)
+                .ForeignKey("dbo.Projects", t => t.ProjectID, cascadeDelete: true)
+                .Index(t => t.ProjectID);
             
             CreateTable(
                 "dbo.Payments",
@@ -158,6 +172,23 @@ namespace ProjectFinderApp.Migrations
                 .Index(t => t.ApplicationUserID);
             
             CreateTable(
+                "dbo.PremiumContents",
+                c => new
+                    {
+                        ContentID = c.Int(nullable: false, identity: true),
+                        ProjectTitle = c.String(),
+                        Technique = c.String(),
+                        Supplies = c.String(),
+                        FilePath = c.String(),
+                        Image = c.Binary(),
+                        ContactInfo = c.String(),
+                        ApplicationUserID = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.ContentID)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUserID)
+                .Index(t => t.ApplicationUserID);
+            
+            CreateTable(
                 "dbo.RegisteredUsers",
                 c => new
                     {
@@ -190,20 +221,24 @@ namespace ProjectFinderApp.Migrations
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.RegisteredUsers", "ApplicationUserID", "dbo.AspNetUsers");
+            DropForeignKey("dbo.PremiumContents", "ApplicationUserID", "dbo.AspNetUsers");
             DropForeignKey("dbo.Payments", "SubscriberID", "dbo.Subscribers");
             DropForeignKey("dbo.Subscribers", "ApplicationUserID", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Projects", "MagazineID", "dbo.Magazines");
             DropForeignKey("dbo.FilePaths", "ProjectID", "dbo.Projects");
+            DropForeignKey("dbo.Comments", "ProjectID", "dbo.Projects");
+            DropForeignKey("dbo.Projects", "MagazineID", "dbo.Magazines");
             DropForeignKey("dbo.Admins", "ApplicationUserID", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.RegisteredUsers", new[] { "ApplicationUserID" });
+            DropIndex("dbo.PremiumContents", new[] { "ApplicationUserID" });
             DropIndex("dbo.Subscribers", new[] { "ApplicationUserID" });
             DropIndex("dbo.Payments", new[] { "SubscriberID" });
-            DropIndex("dbo.Projects", new[] { "MagazineID" });
             DropIndex("dbo.FilePaths", new[] { "ProjectID" });
+            DropIndex("dbo.Projects", new[] { "MagazineID" });
+            DropIndex("dbo.Comments", new[] { "ProjectID" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
@@ -212,11 +247,13 @@ namespace ProjectFinderApp.Migrations
             DropIndex("dbo.Admins", new[] { "ApplicationUserID" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.RegisteredUsers");
+            DropTable("dbo.PremiumContents");
             DropTable("dbo.Subscribers");
             DropTable("dbo.Payments");
+            DropTable("dbo.FilePaths");
             DropTable("dbo.Magazines");
             DropTable("dbo.Projects");
-            DropTable("dbo.FilePaths");
+            DropTable("dbo.Comments");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");

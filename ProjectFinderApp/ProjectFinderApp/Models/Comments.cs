@@ -15,7 +15,9 @@ namespace ProjectFinderApp.Models
         public string Comment { get; set; }
         public int Rating { get; set; }
 
-        
+        [ForeignKey("ProjectID")]
         public virtual Project project { get; set; }
+        public int ProjectID { get; set; }
+
     }
 }

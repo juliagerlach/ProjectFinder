@@ -42,15 +42,17 @@ namespace ProjectFinderApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(FormCollection form)
+        public ActionResult Add(FormCollection form, Project projectThing)
         {
             var comment = form["Comment"].ToString();
             var ProjectId = int.Parse(form["ProjectID"]);
+            var Project = db.Projects.Where(p => p.ProjectID == ProjectId).FirstOrDefault();
             var rating = int.Parse(form["Rating"]);
 
             Comments artComment = new Comments()
             {
-                //ProjectID = projectID,
+                ProjectID = projectThing.ProjectID,
+                project = Project,
                 Comment = comment,
                 Rating = rating,
                 Timestamp = DateTime.Now
@@ -59,7 +61,7 @@ namespace ProjectFinderApp.Controllers
             db.Comments.Add(artComment);
             db.SaveChanges();
 
-            return RedirectToAction("Details", "Projects");
+            return RedirectToAction("Details", "Project", Project);
         }
 
         // POST: Comments/Create
