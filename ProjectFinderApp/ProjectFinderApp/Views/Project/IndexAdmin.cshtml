@@ -57,7 +57,7 @@
 
             <td>
 
-                @Html.ActionLink(" Create", "Create", new { id = item.ProjectID })
+                
                 @Html.ActionLink("Edit", "Edit", new { id = item.ProjectID })
                 @Html.ActionLink("Details", "Details", new { id = item.ProjectID })
                 @Html.ActionLink("Delete", "Delete", new { id = item.ProjectID })
@@ -68,5 +68,6 @@
 </table>
 
 <div>
-    @Html.ActionLink("See all comments", "Index", "Comments")
+    @Html.ActionLink("See All Comments", "Index", "Comments") |
+    @Html.ActionLink("Add New Project", "Create", "Project")
 </div>

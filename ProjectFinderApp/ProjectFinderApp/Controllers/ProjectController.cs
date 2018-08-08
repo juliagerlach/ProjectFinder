@@ -146,7 +146,7 @@ namespace ProjectFinderApp.Controllers
         // GET: Project/Create
         public ActionResult Create()
         {
-            ViewBag.MagazineID = new SelectList(db.Magazines, "MagazineID", "MagazineTitle");
+            //ViewBag.MagazineID = new SelectList(db.Magazines, "MagazineID", "MagazineTitle");
             return View();
         }
 
@@ -161,9 +161,9 @@ namespace ProjectFinderApp.Controllers
             {
                 db.Projects.Add(project);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexAdmin");
             }
-            ViewBag.MagazineID = new SelectList(db.Magazines, "MagazineID", "MagazineTitle", project.MagazineID);
+            //ViewBag.MagazineID = new SelectList(db.Magazines, "MagazineID", "MagazineTitle", project.MagazineID);
             return View(project);
         }
 
