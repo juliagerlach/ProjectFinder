@@ -1,18 +1,18 @@
-﻿@model ProjectFinderApp.Models.Comments
+﻿@model IEnumerable<ProjectFinderApp.Models.Comments>
 
 @{
                 /**/
 
                 ViewBag.Title = "Index";
 }
-
+<br />
 <h2>Comment Index</h2>
 
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.project)
+            @Html.DisplayNameFor(model => model.ProjectID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Comment)
@@ -20,20 +20,21 @@
         <th></th>
     </tr>
 
-    @*@foreach (var item in Model)
+    @foreach (var item in Model)
     {
 <tr>
+    
     <td>
-        @Html.DisplayFor(modelItem => item.Name)
+        @Html.DisplayFor(modelItem => item.ProjectID)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.Comment)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
     </td>
 </tr>
-}*@
+}
 
 </table>

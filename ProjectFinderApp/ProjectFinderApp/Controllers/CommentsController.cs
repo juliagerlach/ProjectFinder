@@ -101,7 +101,7 @@ namespace ProjectFinderApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Comments,Timestamp,ProjectID,Rating")] Comments comment)
+        public ActionResult Edit([Bind(Include = "CommentId,Comments,ProjectID")] Comments comment)
         {
             if (ModelState.IsValid)
             {
