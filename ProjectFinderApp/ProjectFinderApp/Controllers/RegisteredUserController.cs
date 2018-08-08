@@ -59,7 +59,7 @@ namespace ProjectFinderApp.Controllers
                 registeredUser.AccessEndDate = registeredUser.AccessStartDate.AddDays(30);
                 db.RegisteredUsers.Add(registeredUser);
                 db.SaveChanges();
-                return RedirectToAction("Details", "RegisteredUser");
+                return RedirectToAction("Details");
             }
 
             return View();
