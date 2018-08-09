@@ -22,6 +22,7 @@ namespace ProjectFinderApp.Models
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserID { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
+        public virtual ICollection<FilePath> FilePaths { get; set; }
 
         public IEnumerator GetEnumerator()
         {

@@ -12,12 +12,12 @@ namespace ProjectFinderApp.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: PremiumContent
-        public ActionResult Index()
+        public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Index(PremiumContent Content, HttpPostedFileBase File1, HttpPostedFileBase File2)
+        public ActionResult Create(PremiumContent Content, HttpPostedFileBase File1, HttpPostedFileBase File2)
         {
             if (File1 != null && File1.ContentLength > 0 && File2 != null)
             {
@@ -57,5 +57,15 @@ namespace ProjectFinderApp.Controllers
                 return PartialView("detail");
             }
         }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "ProjectTitle,Technique,Supplies,ContactInfo")]string file,HttpPostedFileBase upload)
+        //{
+        //    if (file != null)
+        //    {
+
+        //    }
+
+        //}
     } 
 }

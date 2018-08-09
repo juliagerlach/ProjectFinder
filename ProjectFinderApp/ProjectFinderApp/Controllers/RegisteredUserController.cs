@@ -130,5 +130,50 @@ namespace ProjectFinderApp.Controllers
             }
             base.Dispose(disposing);
         }
+        // GET: RegisteredUsers/UpgradeSub
+        //public ActionResult UpgradeSub()
+        //{
+        //    return View();
+        //}
+
+        //// POST: RegisteredUsers/UpgradeSub
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult UpgradeSub([Bind(Include = "ID,Name,StreetAddress,City,State,PostalCode,Email,ApplicationUserId,SubscriptionType")] RegisteredUser registeredUser)
+        //{
+        //    var currentUserId = User.Identity.GetUserId();
+        //    registeredUser.ApplicationUserID = currentUserId;
+        //    if (ModelState.IsValid)
+        //    {
+
+        //        if (registeredUser.AccessType == "monthly")
+        //        {
+        //            registeredUser.SubscriptionActive = true;
+        //            registeredUser.SubscriptionStartDate = DateTime.Now;
+        //            registeredUser.SubscriptionEndDate = subscriber.SubscriptionStartDate.AddDays(30);
+        //            registeredUser.Payment = 2;
+        //            db.Subscribers.Add(subscriber);
+        //            db.SaveChanges();
+
+        //            return RedirectToAction("Index1", "Subscriber");
+        //        }
+
+        //        else if (subscriber.SubscriptionType == "yearly")
+        //        {
+        //            subscriber.SubscriptionActive = true;
+        //            subscriber.SubscriptionStartDate = DateTime.Now;
+        //            subscriber.SubscriptionEndDate = subscriber.SubscriptionStartDate.AddDays(365);
+        //            subscriber.Payment = 10;
+        //            db.Subscribers.Add(subscriber);
+        //            db.SaveChanges();
+        //            return RedirectToAction("Index", "Subscriber");
+        //        }
+
+        //    }
+
+        //    return View();
+        //}
     }
 }

@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201808071458481_Initial.Designer.cs">
       <DependentUpon>201808071458481_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808091528324_FilePaths.cs" />
+    <Compile Include="Migrations\201808091528324_FilePaths.Designer.cs">
+      <DependentUpon>201808091528324_FilePaths.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -430,6 +434,7 @@
     <Content Include="Views\Comments\Delete.cshtml" />
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
+    <Content Include="Views\PremiumContent\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -450,6 +455,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808071458481_Initial.resx">
       <DependentUpon>201808071458481_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808091528324_FilePaths.resx">
+      <DependentUpon>201808091528324_FilePaths.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

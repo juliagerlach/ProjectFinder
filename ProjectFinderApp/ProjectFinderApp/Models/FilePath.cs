@@ -6,6 +6,7 @@ namespace ProjectFinderApp.Models
     {
         [Key]
         public int FilePathId { get; set; }
+        [StringLength(225)]
         public string FileName { get; set; }
         public FileType FileType { get; set; }
         public int ProjectID { get; set; }
