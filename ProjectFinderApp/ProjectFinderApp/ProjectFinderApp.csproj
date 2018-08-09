@@ -223,6 +223,10 @@
     <Compile Include="Migrations\201808091528324_FilePaths.Designer.cs">
       <DependentUpon>201808091528324_FilePaths.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808092040149_PremiumContent.cs" />
+    <Compile Include="Migrations\201808092040149_PremiumContent.Designer.cs">
+      <DependentUpon>201808092040149_PremiumContent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -343,6 +347,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.filedrop.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -438,6 +443,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -458,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808091528324_FilePaths.resx">
       <DependentUpon>201808091528324_FilePaths.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808092040149_PremiumContent.resx">
+      <DependentUpon>201808092040149_PremiumContent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

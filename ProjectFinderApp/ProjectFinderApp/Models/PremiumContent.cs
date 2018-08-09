@@ -16,7 +16,7 @@ namespace ProjectFinderApp.Models
         public string Technique { get; set; }
         public string Supplies { get; set; }
         public string FilePath { get; set; }
-        public byte[] Image { get; set; }
+        public string ImageName { get; set; }
         public string ContactInfo { get; set; }
 
         [ForeignKey("ApplicationUser")]

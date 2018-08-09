@@ -3,22 +3,60 @@
 @{
     ViewBag.Title = "Index";
 }
+<br />
+<h2>Drag & Drop upload</h2>
+    <div id="dropArea">
+        Drop your files here.
+    </div>
+<h4>Uploaded files : </h4>
+<ul class="list-group" id="uploadList">
 
-<h2>Index</h2>@using (Html.BeginForm("Index", "PremiumContent", FormMethod.Post, new { enctype = "data" }))
-{
-    <div class="container">
-        <table>
-            <tr>Project Title</tr>
-            <tr>Technique</tr>
-            <tr>Supplies</tr>
-            <tr>
-                <td style="width:80px; height:50px"><label>Image</label>
-                <input type="file" name="file1" id="file1" style="width: 100%;"/><br /></td>
-                <td>
-                <label>File Path</label><input type="file" name="file2" id="file2" style="width:100%;" />
-                </td>
-                <td><input tpe="submit" value="Submit"/></td>
-            </tr>
-        </table>
-        </div>}
+</ul>
+
+<style>
+    #dropArea{
+        background:#b5b5b5;
+        border:black dashed 1px;
+        height:50px;
+        text-align:center;
+        color:#fff;
+    }
+    .active-drop{
+        background:#6ae99b !important;
+        border:solid 2px green !important;
+        opacity:.5;
+        color:black !important;
+    }
+</style>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.filedrop.js"></script>
+    <script type="text/javascrpit">
+        $(function() {
+            $('#dropArea').filedrop({
+                url:'@Url.Action("UploadFiles")',
+                allowedfiletypes:['image/jpeg', 'file/pdf'],
+                allowedfileextensions:['.jpg', '.jpeg', '.pdf'],
+                paramname: 'files',
+                maxfiles: 3,
+                maxfilesize: 2,
+                dragOver:function(){
+                    $('#dropArea').addClass('active-drop');
+                },
+                dragLeave:function(){
+                    $('#dropArea').removeClass('active-drop');
+                },
+                drop:function(){
+                    $('dropArea').removeClass('active-drop');
+                },
+                afterAll:function (e) {
+                    $('#dropArea').html('file(s) uploaded successfully');
+                }
+                uploadFinished:function (i, file, response, time) {
+                    $('#uploadList').append('<li class="list-group-item">'+file.name+'</li>')
+                }
+            })
+        })
+    </script>
+    }
 
