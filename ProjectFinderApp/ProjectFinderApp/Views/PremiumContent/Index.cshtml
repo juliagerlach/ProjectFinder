@@ -22,6 +22,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Supplies)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilePath2)
+        </th>
 
 
         <th></th>
@@ -29,26 +32,29 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                <img src=@item.FilePath1 alt="Image" width="300" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Technique)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Supplies)
-            </td>
+    <tr>
+        <td>
+            <img src=@item.FilePath1 alt="Image" width="300" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Technique)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilePath2)
+        </td>
 
 
-            <td>
-                @Html.ActionLink("Details", "Detail", new { id = item.ContentID })
+        <td>
+            @Html.ActionLink("Details", "Detail", new { id = item.ContentID })
 
-            </td>
-        </tr>
+        </td>
+    </tr>
     }
 
 </table>

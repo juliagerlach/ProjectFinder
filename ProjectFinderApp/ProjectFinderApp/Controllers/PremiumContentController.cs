@@ -1,9 +1,12 @@
-﻿using ProjectFinderApp.Models;
+﻿using Microsoft.AspNet.Identity;
+using ProjectFinderApp.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace ProjectFinderApp.Controllers
@@ -16,7 +19,7 @@ namespace ProjectFinderApp.Controllers
         // GET: PremiumContent
         public ActionResult Index()
         {
-            return View();
+            return View(db.PremiumContents.ToList());
         }
 
         //public ActionResult UploadFiles(IEnumerable<HttpPostedFileBase> files)
@@ -43,93 +46,65 @@ namespace ProjectFinderApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContentID,ProjectTitle,Technique,Supplies,FilePath1,FilePath2,ContactInfo")] HttpPostedFileBase file1, HttpPostedFileBase file2, PremiumContent premiumContent )
+        public ActionResult Create([Bind(Include = "ContentID,ProjectTitle,Technique,Supplies,FilePath1,FilePath2,ContactInfo,ApplicationUserID")] HttpPostedFileBase file1, HttpPostedFileBase file2, PremiumContent premiumContent)
         {
+            var currentUserId = User.Identity.GetUserId();
+            var title = premiumContent.ProjectTitle.ToString();
+            var technique = premiumContent.Technique.ToString();
+            var supplies = premiumContent.Supplies.ToString();
+            string FilePath1 = Path.Combine(Server.MapPath("~/UploadedFiles/"), Path.GetFileName(file1.FileName));
+            string FilePath2 = Path.Combine(Server.MapPath("~/UploadedFiles/"), Path.GetFileName(file2.FileName));
+
             if (ModelState.IsValid)
             {
-                if (file1 != null && file2 != null)
-                {
-                    string FilePath1 = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file1.FileName));
-                    file1.SaveAs(FilePath1);
-                    string FilePath2 = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file2.FileName));
-                    file2.SaveAs(FilePath2);
-                    ViewBag.Message = "File Uploaded Successfully!";
-                }
+                
+                file1.SaveAs(FilePath1);
+                premiumContent.FilePath1 = "/../UploadedFiles/" + file1.FileName;
+                
+                file2.SaveAs(FilePath2);
+                premiumContent.FilePath2 = "/../UploadedFiles/" + file2.FileName;
+                ViewBag.Message = "File Uploaded Successfully!";
+
                 db.PremiumContents.Add(premiumContent);
                 db.SaveChanges();
+                return RedirectToAction("Index");
             }
             else
             {
                 ViewBag.Message = "File Upload Failed!";
             }
-            return View("Index");
+            return RedirectToAction("Index");
         }
-        //[HttpPost]
-        //public ActionResult Create(PremiumContent Content, HttpPostedFileBase File1, HttpPostedFileBase File2)
-        //{
-        //    if (File1 != null && File1.ContentLength > 0 && File2 != null)
-        //    {
-        //        Content.Image = new byte[File1.ContentLength];
-        //        File1.InputStream.Read(Content.Image, 0, File1.ContentLength);
-        //        string ImageName = System.IO.Path.GetFileName(File2.FileName);
-        //        string physicalPath = Server.MapPath("~/img/" + ImageName);
-
-        //        File2.SaveAs(physicalPath);
-        //        Content.FilePath = "img/" + ImageName;
-        //        db.PremiumContents.Add(Content);
-        //        db.SaveChanges();
-        //        return PartialView("detail");
-        //    }
-        //    if (File1 != null && File1.ContentLength > 0 && File2 == null)
-        //    {
-        //        Content.Image = new byte[File1.ContentLength];
-        //        File1.InputStream.Read(Content.Image, 0, File1.ContentLength);
-        //        db.PremiumContents.Add(Content);
-        //        db.SaveChanges();
-        //        return PartialView("detail");
-        //    }
-        //    if (File1 == null && File2 != null)
-        //    {
-        //        string ImageName = System.IO.Path.GetFileName(File2.FileName);
-        //        string physicalPath = Server.MapPath("~/img/" + ImageName);
-        //        File2.SaveAs(physicalPath);
-        //        Content.FilePath = "img/" + ImageName;
-        //        db.PremiumContents.Add(Content);
-        //        db.SaveChanges();
-        //        return PartialView("detail");
-        //    }
-        //    else
-        //    {
-        //        db.PremiumContents.Add(Content);
-        //        db.SaveChanges();
-        //        return PartialView("detail");
-        //    }
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "ProjectTitle,Technique,Supplies,ContactInfo")]string file,HttpPostedFileBase upload)
-        //{
-        //    if (file != null)
-        //    {
-
-        //    }
-
-        //}
         
-        public ActionResult UploadFiles(IEnumerable<HttpPostedFileBase> files)
+
+        // GET: Comments/Details/5
+        public ActionResult Details(int? id)
         {
-            foreach (var file in files)
+            if (id == null)
             {
-                string filePath = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                file.SaveAs(Path.Combine(Server.MapPath("~/UploadedFiles"), filePath));
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return Json("file uploaded successfully");
+            PremiumContent premiumContent = db.PremiumContents.Find(id);
+            if (premiumContent == null)
+            {
+                return HttpNotFound();
+            }
+            return View(premiumContent);
         }
-        //[HttpPost]
-        //public ActionResult AddImage(PremiumContent premiumContent)
-        //{
-        //    public string fileName = Path.GetFileNameWithoutExtension(ApplicationDbContext.PremiumContents.ImageFile.FileName);
-        //    return View();
-        //}
+       public ActionResult Download()
+        {
+            string file = "";
+            if(!System.IO.File.Exists(file))
+            {
+                return HttpNotFound();
+            }
+
+            var fileBytes = System.IO.File.ReadAllBytes(file);
+            var response = new FileContentResult(fileBytes, "application/octetstream")
+            {
+                FileDownloadName = ""
+            };
+            return response;
+        }
     } 
 }
