@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace ProjectFinderApp.Controllers
 {
+    [Authorize(Roles = "Admin,Subscriber")]
     public class PremiumContentController : Controller
         
     {
@@ -18,20 +19,50 @@ namespace ProjectFinderApp.Controllers
             return View();
         }
 
-        public ActionResult UploadFiles(IEnumerable<HttpPostedFileBase> files)
-        {
-            foreach (var file in files)
-            {
-                string filePath = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                file.SaveAs(Path.Combine(Server.MapPath("~/UploadedFiles"), filePath));
-                //write code here to save info to db
-            }
-            return Json("file uploaded successfully");
-        }
+        //public ActionResult UploadFiles(IEnumerable<HttpPostedFileBase> files)
+        //{
+        //    foreach (var file in files)
+        //    {
+        //        string filePath = Guid.NewGuid() + Path.GetExtension(file.FileName);
+        //        file.SaveAs(Path.Combine(Server.MapPath("~/UploadedFiles"), filePath));
+        //        //write code here to save info to db
+        //        //db.PremiumContents.Add(files);
+        //        //db.SaveChanges();
+        //        //return PartialView("detail");
+        //    }
+        //    return Json("file uploaded successfully");
+        //}
 
         public ActionResult Create()
         {
             return View();
+        }
+
+        // POST: Project/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "ContentID,ProjectTitle,Technique,Supplies,FilePath1,FilePath2,ContactInfo")] HttpPostedFileBase file1, HttpPostedFileBase file2, PremiumContent premiumContent )
+        {
+            if (ModelState.IsValid)
+            {
+                if (file1 != null && file2 != null)
+                {
+                    string FilePath1 = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file1.FileName));
+                    file1.SaveAs(FilePath1);
+                    string FilePath2 = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file2.FileName));
+                    file2.SaveAs(FilePath2);
+                    ViewBag.Message = "File Uploaded Successfully!";
+                }
+                db.PremiumContents.Add(premiumContent);
+                db.SaveChanges();
+            }
+            else
+            {
+                ViewBag.Message = "File Upload Failed!";
+            }
+            return View("Index");
         }
         //[HttpPost]
         //public ActionResult Create(PremiumContent Content, HttpPostedFileBase File1, HttpPostedFileBase File2)
@@ -83,6 +114,22 @@ namespace ProjectFinderApp.Controllers
 
         //    }
 
+        //}
+        
+        public ActionResult UploadFiles(IEnumerable<HttpPostedFileBase> files)
+        {
+            foreach (var file in files)
+            {
+                string filePath = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                file.SaveAs(Path.Combine(Server.MapPath("~/UploadedFiles"), filePath));
+            }
+            return Json("file uploaded successfully");
+        }
+        //[HttpPost]
+        //public ActionResult AddImage(PremiumContent premiumContent)
+        //{
+        //    public string fileName = Path.GetFileNameWithoutExtension(ApplicationDbContext.PremiumContents.ImageFile.FileName);
+        //    return View();
         //}
     } 
 }

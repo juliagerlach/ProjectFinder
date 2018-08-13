@@ -7,13 +7,13 @@ namespace ProjectFinderApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class PremiumContent1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PremiumContent1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808071458481_Initial"; }
+            get { return "201808102019198_PremiumContent1"; }
         }
         
         string IMigrationMetadata.Source

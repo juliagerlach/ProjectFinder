@@ -8,9 +8,8 @@ namespace ProjectFinderApp.Models
         public int FilePathId { get; set; }
         [StringLength(225)]
         public string FileName { get; set; }
-        public FileType FileType { get; set; }
-        public int ProjectID { get; set; }
-        public virtual Project Project { get; set; }
+        public int ContentID { get; set; }
+        public virtual PremiumContent PremiumContent { get; set; }
 
     }
 }

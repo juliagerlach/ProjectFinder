@@ -6,77 +6,65 @@
 
 <h2>Detail</h2>
 
-@*<div>
-    <h4>PremiumContent</h4>
-    <hr />
-    <dl class="dl-horizontal">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectTitle)
-        </dt>
+        <h4>PremiumContent</h4>
+        <hr />
+        <dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectTitle)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectTitle)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Technique)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ProjectTitle)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Technique)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Technique)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplies)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Technique)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Supplies)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Supplies)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FilePath)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Supplies)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FilePath)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ContactInfo)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactInfo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ContactInfo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ContactInfo)
-        </dd>
+        </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplicationUser.UserName)
-        </dt>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.ProjectTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Technique)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Supplies)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.ContactInfo)
+                    </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.ApplicationUserID)
-        </dd>
-    </dl>
+                </tr>
+            }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProjectTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Technique)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Supplies)
-                </td>
-                
-            </tr>
-        }
-
-</div>*@
+    
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ContentID }) |
     @Html.ActionLink("Back to List", "Index")

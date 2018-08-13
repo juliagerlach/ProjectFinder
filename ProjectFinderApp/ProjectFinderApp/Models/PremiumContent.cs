@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,11 +13,22 @@ namespace ProjectFinderApp.Models
     {
         [Key]
         public int ContentID { get; set; }
+        [DisplayName("Project Title")]
         public string ProjectTitle { get; set; }
         public string Technique { get; set; }
         public string Supplies { get; set; }
-        public string FilePath { get; set; }
-        public string ImageName { get; set; }
+        [DisplayName("Upload Image")]
+        public string FilePath1 { get; set; }
+        [DisplayName("Upload PDF")]
+        public string FilePath2 { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase File1 { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase File2 { get; set; }
+
+        [DisplayName("Your Contact Info")]
         public string ContactInfo { get; set; }
 
         [ForeignKey("ApplicationUser")]

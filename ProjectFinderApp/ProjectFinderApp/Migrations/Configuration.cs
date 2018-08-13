@@ -24,7 +24,7 @@ namespace ProjectFinderApp.Migrations
 
                 new Project() { PageNumber = 3, ProjectTitle = "Criss-cross Button Bracelet", ProjectType = "bracelet", ProjectDesigner = "Julia Gerlach", MagazineID = 2, IssueID = 0812, Technique = "crossweave", Supplies = "20mm buttons, 3mm pearls, 3mm crystals, 6mm crystals, 8/0 seed beads, 11/0 seed beads", OnlineLink = "http://facetjewelry.com/stitching/projects/2016/05/criss-cross-button-bracelet", FilePath = "/../../Content/Images/Crisscrossbuttonbracelet.jpg", FileName = "Crisscrossbuttonbracelet.jpg" },
 
-                new Project() { PageNumber = 16, ProjectTitle = "Crystal Chic", ProjectType = "necklace", ProjectDesigner = "Julia Gerlach", MagazineID = 1, IssueID = 0813, Technique = "stringing", Supplies = "6mm crystals, crystal drops, 8/0 seed beads, 11/0 seed beads, jump rings", OnlineLink = null, FilePath = "/../../~Content/Images/crystalchic.jpg", FileName = "crystalchic.jpg" },
+                new Project() { PageNumber = 16, ProjectTitle = "Crystal Chic", ProjectType = "necklace", ProjectDesigner = "Julia Gerlach", MagazineID = 1, IssueID = 0813, Technique = "stringing", Supplies = "6mm crystals, crystal drops, 8/0 seed beads, 11/0 seed beads, jump rings", OnlineLink = null, FilePath = "/../../Content/Images/crystalchic.jpg", FileName = "crystalchic.jpg" },
 
                 new Project() { PageNumber = 45, ProjectTitle = "Crystalline Cuff", ProjectType = "bracelet", ProjectDesigner = "Dana Rudolph", MagazineID = 1, IssueID = 0617, Technique = "right-angle weave", Supplies = "6/0 seed beads, 11/0 seed beads, 15/0 seed beads, 3mm pearls, ss12 rose montees, ss16 rose montees, ss29 cup chain", OnlineLink = null, FilePath = "/../../Content/Images/crystallinecuff.jpg", FileName = "crystallinecuff.jpg" },
 
@@ -68,7 +68,7 @@ namespace ProjectFinderApp.Migrations
 
                 new Project() { PageNumber = 62, ProjectTitle = "Super Cube Beaded Bead", ProjectType = "beaded bead", ProjectDesigner = "Deborah Hodoyer", MagazineID = 4, IssueID = 0417, Technique = "beadweaving", Supplies = "SuperDuos, 4mm pearls, 11/0 seed beads, 15/0 seed beads", OnlineLink = null, FilePath = "/../../Content/Images/supercubebeadedbead.jpg", FileName = "supercubebeadedbead.jpg" },
 
-                new Project() { PageNumber = 22, ProjectTitle = "Rondelicious", ProjectType = "bracelet", ProjectDesigner = "Natalie Smith", MagazineID = 3, IssueID = 0115, Technique = "right-angle weave", Supplies = "Crystallets buttons, 11/0 seed beads", OnlineLink = null, FilePath = "/../../~Content/Images/rondeliciouscuff.jpg", FileName = "rondeliciouscuff.jpg" },
+                new Project() { PageNumber = 22, ProjectTitle = "Rondelicious", ProjectType = "bracelet", ProjectDesigner = "Natalie Smith", MagazineID = 3, IssueID = 0115, Technique = "right-angle weave", Supplies = "Crystallets buttons, 11/0 seed beads", OnlineLink = null, FilePath = "/../../Content/Images/rondeliciouscuff.jpg", FileName = "rondeliciouscuff.jpg" },
 
                 new Project() { PageNumber = 12, ProjectTitle = "Rays of Light", ProjectType = "earrings", ProjectDesigner = "Deborah Hodoyer", MagazineID = 2, IssueID = 0617, Technique = "beadweaving", Supplies = "SuperDuos, 4mm crystals, 11/0 seed beads", OnlineLink = null, FilePath = "/../../Content/Images/rayoflightearrings.jpg", FileName = "rayoflightearrings.jpg" },
 
@@ -80,7 +80,7 @@ namespace ProjectFinderApp.Migrations
 
                 new Project() { PageNumber = 16, ProjectTitle = "Proactive Pearls", ProjectType = "necklace", ProjectDesigner = "Cathy Jakicic", MagazineID = 3, IssueID = 0714, Technique = "stringing", Supplies = "6mm pearls, 8mm pearls, 10mm pearls, crystal pendant, chain", OnlineLink = null, FilePath = "/../../Content/Images/provacativepearls.jpg", FileName = "provacativepearls.jpg" },
 
-                new Project() { PageNumber = 12, ProjectTitle = "Phoenix Pendant", ProjectType = "pendant", ProjectDesigner = "Cara Landry", MagazineID = 4, IssueID = 0616, Technique = "brick stitch", Supplies = "11/0 cylinder beads", OnlineLink = null, FilePath = "~Content/Images/phoenixpendant.jpg", FileName = "phoenixpendant.jpg" },
+                new Project() { PageNumber = 12, ProjectTitle = "Phoenix Pendant", ProjectType = "pendant", ProjectDesigner = "Cara Landry", MagazineID = 4, IssueID = 0616, Technique = "brick stitch", Supplies = "11/0 cylinder beads", OnlineLink = null, FilePath = "/../../Content/Images/phoenixpendant.jpg", FileName = "phoenixpendant.jpg" },
 
                 new Project() { PageNumber = 45, ProjectTitle = "On the Edge", ProjectType = "bracelet", ProjectDesigner = "Jaimie Eakin", MagazineID = 5, IssueID = 0816, Technique = "loomwork", Supplies = "11/0 cylinder beads, 4mm crystals", OnlineLink = null, FilePath = "/../../Content/Images/ontheedgeeakin.jpg", FileName = "ontheedgeeakin.jpg" },
 
@@ -113,6 +113,7 @@ namespace ProjectFinderApp.Migrations
                     new Magazine() { MagazineTitle = "Bead Magazine" }
                     );
 
+                
 
 
 
@@ -123,9 +124,5 @@ namespace ProjectFinderApp.Migrations
                 //  to avoid creating duplicate seed data.
             }
         }
-        //  This method will be called after migrating to the latest version.
-
-        //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-        //  to avoid creating duplicate seed data.
     }
 }

@@ -215,24 +215,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808071458481_Initial.cs" />
-    <Compile Include="Migrations\201808071458481_Initial.Designer.cs">
-      <DependentUpon>201808071458481_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201808101734472_Initial.cs" />
+    <Compile Include="Migrations\201808101734472_Initial.Designer.cs">
+      <DependentUpon>201808101734472_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808091528324_FilePaths.cs" />
-    <Compile Include="Migrations\201808091528324_FilePaths.Designer.cs">
-      <DependentUpon>201808091528324_FilePaths.cs</DependentUpon>
+    <Compile Include="Migrations\201808101815132_PremiumContent.cs" />
+    <Compile Include="Migrations\201808101815132_PremiumContent.Designer.cs">
+      <DependentUpon>201808101815132_PremiumContent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808092040149_PremiumContent.cs" />
-    <Compile Include="Migrations\201808092040149_PremiumContent.Designer.cs">
-      <DependentUpon>201808092040149_PremiumContent.cs</DependentUpon>
+    <Compile Include="Migrations\201808102019198_PremiumContent1.cs" />
+    <Compile Include="Migrations\201808102019198_PremiumContent1.Designer.cs">
+      <DependentUpon>201808102019198_PremiumContent1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Comments.cs" />
     <Compile Include="Models\FilePath.cs" />
-    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Magazine.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -354,6 +353,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\saasecom.card.form.js" />
+    <Content Include="UploadedFiles\Beadedleathercuff.jpg" />
+    <Content Include="UploadedFiles\Sandandsea.jpg" />
+    <Content Include="UploadedFiles\TattedLaceearringshero.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -440,10 +442,13 @@
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\PremiumContent\Create.cshtml" />
+    <Content Include="Views\PremiumContent\AddImage.cshtml" />
+    <Content Include="UploadedFiles\Sandandseakumihimonecklace.pdf" />
+    <Content Include="UploadedFiles\Beadedleathercuff.pdf" />
+    <Content Include="UploadedFiles\TattedLacejewelry.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -459,14 +464,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808071458481_Initial.resx">
-      <DependentUpon>201808071458481_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808101734472_Initial.resx">
+      <DependentUpon>201808101734472_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808091528324_FilePaths.resx">
-      <DependentUpon>201808091528324_FilePaths.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808101815132_PremiumContent.resx">
+      <DependentUpon>201808101815132_PremiumContent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808092040149_PremiumContent.resx">
-      <DependentUpon>201808092040149_PremiumContent.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808102019198_PremiumContent1.resx">
+      <DependentUpon>201808102019198_PremiumContent1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,14 +7,12 @@ namespace ProjectFinderApp.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.PremiumContents", "ImageName", c => c.String());
-            DropColumn("dbo.PremiumContents", "Image");
+            DropColumn("dbo.PremiumContents", "ImageName");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.PremiumContents", "Image", c => c.Binary());
-            DropColumn("dbo.PremiumContents", "ImageName");
+            AddColumn("dbo.PremiumContents", "ImageName", c => c.String());
         }
     }
 }
