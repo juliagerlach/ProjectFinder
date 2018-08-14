@@ -7,6 +7,9 @@
 }
 <br />
 <h2>Premium Content</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 
 <table class="table">
     <tr>
@@ -19,14 +22,8 @@
         <th>
             @Html.DisplayNameFor(model => model.Technique)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Supplies)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FilePath2)
-        </th>
-
-
+        
+        
         <th></th>
     </tr>
 
@@ -42,16 +39,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Technique)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Supplies)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FilePath2)
-        </td>
+        
 
 
         <td>
-            @Html.ActionLink("Details", "Detail", new { id = item.ContentID })
+            @Html.ActionLink("Details", "Details", new { id = item.ContentID })
 
         </td>
     </tr>

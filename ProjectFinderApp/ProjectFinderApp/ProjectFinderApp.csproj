@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201808102019198_PremiumContent1.Designer.cs">
       <DependentUpon>201808102019198_PremiumContent1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808141823593_PremiumContent2.cs" />
+    <Compile Include="Migrations\201808141823593_PremiumContent2.Designer.cs">
+      <DependentUpon>201808141823593_PremiumContent2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -354,7 +358,6 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\saasecom.card.form.js" />
     <Content Include="UploadedFiles\Beadedleathercuff.jpg" />
-    <Content Include="UploadedFiles\Brickstitchbracelet.jpg" />
     <Content Include="UploadedFiles\Byzantinenecklace.jpg" />
     <Content Include="UploadedFiles\Crystalbirthstonebracelet.jpg" />
     <Content Include="UploadedFiles\Crystalcollar.jpg" />
@@ -439,7 +442,7 @@
     <Content Include="Views\Subscriber\Index1.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
     <Content Include="Views\PremiumContent\Index.cshtml" />
-    <Content Include="Views\PremiumContent\Detail.cshtml" />
+    <Content Include="Views\PremiumContent\Details.cshtml" />
     <Content Include="Views\Project\IndexAdmin.cshtml" />
     <Content Include="Views\Shared\_CommentBox.cshtml" />
     <Content Include="Views\Comments\Create.cshtml" />
@@ -449,15 +452,39 @@
     <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\PremiumContent\Create.cshtml" />
     <Content Include="Views\PremiumContent\AddImage.cshtml" />
-    <Content Include="UploadedFiles\Sandandseakumihimonecklace.pdf" />
+    <Content Include="UploadedFiles\Anchorbracelet.jpg" />
+    <Content Include="UploadedFiles\Anchorbracelet.pdf" />
+    <Content Include="UploadedFiles\Awesomeearrings.jpg" />
+    <Content Include="UploadedFiles\Awesomeearrings.pdf" />
+    <Content Include="UploadedFiles\Beadedleathercuff.jpg" />
     <Content Include="UploadedFiles\Beadedleathercuff.pdf" />
-    <Content Include="UploadedFiles\TattedLacejewelry.pdf" />
+    <Content Include="UploadedFiles\Brickstitchbracelet.jpg" />
     <Content Include="UploadedFiles\Brickstitchbracelet.pdf" />
+    <Content Include="UploadedFiles\btest.pdf" />
+    <Content Include="UploadedFiles\Byzantinenecklace.jpg" />
+    <Content Include="UploadedFiles\Byzantinenecklace.pdf" />
+    <Content Include="UploadedFiles\Crystalbirthstonebracelet.jpg" />
+    <Content Include="UploadedFiles\Crystalbirthstonebracelet.pdf" />
+    <Content Include="UploadedFiles\Crystalcollar.jpg" />
+    <Content Include="UploadedFiles\Crystalcollar.pdf" />
+    <Content Include="UploadedFiles\OldStNicksearrings.jpg" />
+    <Content Include="UploadedFiles\OldStNicksearringspattern.pdf" />
+    <Content Include="UploadedFiles\parrot.jpg" />
+    <Content Include="UploadedFiles\Sandandsea.jpg" />
+    <Content Include="UploadedFiles\Sandandseakumihimonecklace.pdf" />
+    <Content Include="UploadedFiles\Sunflowerbracelet.jpg" />
+    <Content Include="UploadedFiles\Sunflowerbracelet.pdf" />
+    <Content Include="UploadedFiles\TattedLaceearringshero.jpg" />
+    <Content Include="UploadedFiles\TattedLacejewelry.pdf" />
+    <Content Include="UploadedFiles\Sandandseakumihimonecklace.pdf" />
+    <Content Include="UploadedFiles\TattedLacejewelry.pdf" />
     <Content Include="UploadedFiles\Crystalbirthstonebracelet.pdf" />
     <Content Include="UploadedFiles\OldStNicksearringspattern.pdf" />
     <Content Include="UploadedFiles\Sunflowerbracelet.pdf" />
     <Content Include="UploadedFiles\Crystalcollar.pdf" />
     <Content Include="UploadedFiles\Byzantinenecklace.pdf" />
+    <Content Include="UploadedFiles\Anchorbracelet.pdf" />
+    <Content Include="UploadedFiles\Awesomeearrings.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -484,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808102019198_PremiumContent1.resx">
       <DependentUpon>201808102019198_PremiumContent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808141823593_PremiumContent2.resx">
+      <DependentUpon>201808141823593_PremiumContent2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

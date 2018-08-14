@@ -9,7 +9,7 @@ using System.Web;
 
 namespace ProjectFinderApp.Models
 {
-    public class PremiumContent : IEnumerable
+    public class PremiumContent 
     {
         [Key]
         public int ContentID { get; set; }
@@ -17,10 +17,11 @@ namespace ProjectFinderApp.Models
         public string ProjectTitle { get; set; }
         public string Technique { get; set; }
         public string Supplies { get; set; }
-        [DisplayName("Upload Image")]
+        [DisplayName("Image")]
         public string FilePath1 { get; set; }
-        [DisplayName("Upload PDF")]
+        [DisplayName("PDF")]
         public string FilePath2 { get; set; }
+        public string FileName { get; set; }
 
         [NotMapped]
         public HttpPostedFileBase File1 { get; set; }
@@ -28,17 +29,11 @@ namespace ProjectFinderApp.Models
         [NotMapped]
         public HttpPostedFileBase File2 { get; set; }
 
-        [DisplayName("Your Contact Info")]
+        [DisplayName("Designer's Contact Info")]
         public string ContactInfo { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserID { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
-        public virtual ICollection<FilePath> FilePaths { get; set; }
-
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        public ApplicationUser ApplicationUser { get; set; }       
     }
 }

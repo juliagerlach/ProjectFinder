@@ -41,19 +41,18 @@ namespace ProjectFinderApp.Controllers
             return View();
         }
 
-        // POST: Project/Create
+        // POST: PremiumContent/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContentID,ProjectTitle,Technique,Supplies,FilePath1,FilePath2,ContactInfo,ApplicationUserID")] HttpPostedFileBase file1, HttpPostedFileBase file2, PremiumContent premiumContent)
+        public ActionResult Create([Bind(Include = "ContentID,ProjectTitle,Technique,Supplies,FilePath1,FilePath2,FileName,ContactInfo,ApplicationUserID")] HttpPostedFileBase file1, HttpPostedFileBase file2, PremiumContent premiumContent, Subscriber subscriber)
         {
             var currentUserId = User.Identity.GetUserId();
-            var title = premiumContent.ProjectTitle.ToString();
-            var technique = premiumContent.Technique.ToString();
-            var supplies = premiumContent.Supplies.ToString();
+            
             string FilePath1 = Path.Combine(Server.MapPath("~/UploadedFiles/"), Path.GetFileName(file1.FileName));
             string FilePath2 = Path.Combine(Server.MapPath("~/UploadedFiles/"), Path.GetFileName(file2.FileName));
+            string PDFName = Path.GetFileName(file2.FileName);
 
             if (ModelState.IsValid)
             {
@@ -64,6 +63,9 @@ namespace ProjectFinderApp.Controllers
                 file2.SaveAs(FilePath2);
                 premiumContent.FilePath2 = "/../UploadedFiles/" + file2.FileName;
                 ViewBag.Message = "File Uploaded Successfully!";
+
+                premiumContent.FileName = PDFName;
+                subscriber.ApplicationUserID = currentUserId;
 
                 db.PremiumContents.Add(premiumContent);
                 db.SaveChanges();
@@ -91,20 +93,48 @@ namespace ProjectFinderApp.Controllers
             }
             return View(premiumContent);
         }
-       public ActionResult Download()
+        public ActionResult Download(int id)
         {
-            string file = "";
-            if(!System.IO.File.Exists(file))
+            PremiumContent premiumContent = db.PremiumContents.Find(id);
+            var dir = new System.IO.DirectoryInfo(Server.MapPath("~/UploadedFiles/"));
+            System.IO.FileInfo[] fileNames = dir.GetFiles("*.*");
+            List<string> items = new List<string>();
+            string file = premiumContent.FileName;
+
+                        
+            //var FileVirtualPath = "~/UploadedFiles/" + file;
+            ////string file = premiumContent.FilePath2;
+
+            if (!System.IO.File.Exists(file))
             {
                 return HttpNotFound();
             }
 
             var fileBytes = System.IO.File.ReadAllBytes(file);
-            var response = new FileContentResult(fileBytes, "application/octetstream")
+            var response = new FileContentResult(fileBytes, "application/octet-stream")
             {
-                FileDownloadName = ""
+                FileDownloadName = premiumContent.FileName
             };
             return response;
         }
-    } 
+
+        //public ActionResult Downloads()
+        //{
+        //    var dir = new System.IO.DirectoryInfo(Server.MapPath("~/UploadedFiles/"));
+        //    System.IO.FileInfo[] fileNames = dir.GetFiles("*.*"); 
+        //    List<string> items = new List<string>();
+        //    foreach (var file in fileNames)
+        //    {
+        //        items.Add(file.Name);
+        //    }
+        //    return View(items);
+        //}
+        //public FileResult Download(string FileName)
+        //{
+        //    var FileVirtualPath = "~/UploadedFiles/" + FileName;
+        //    return File(FileVirtualPath, "application/forcedownload", Path.GetFileName(FileVirtualPath));
+        //}
+
+
+    }
 }
