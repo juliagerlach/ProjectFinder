@@ -96,14 +96,7 @@ namespace ProjectFinderApp.Controllers
         public ActionResult Download(int id)
         {
             PremiumContent premiumContent = db.PremiumContents.Find(id);
-            var dir = new System.IO.DirectoryInfo(Server.MapPath("~/UploadedFiles/"));
-            System.IO.FileInfo[] fileNames = dir.GetFiles("*.*");
-            List<string> items = new List<string>();
-            string file = premiumContent.FileName;
-
-                        
-            //var FileVirtualPath = "~/UploadedFiles/" + file;
-            ////string file = premiumContent.FilePath2;
+            string file = Server.MapPath("~/UploadedFiles/" + premiumContent.FileName);
 
             if (!System.IO.File.Exists(file))
             {
@@ -117,24 +110,5 @@ namespace ProjectFinderApp.Controllers
             };
             return response;
         }
-
-        //public ActionResult Downloads()
-        //{
-        //    var dir = new System.IO.DirectoryInfo(Server.MapPath("~/UploadedFiles/"));
-        //    System.IO.FileInfo[] fileNames = dir.GetFiles("*.*"); 
-        //    List<string> items = new List<string>();
-        //    foreach (var file in fileNames)
-        //    {
-        //        items.Add(file.Name);
-        //    }
-        //    return View(items);
-        //}
-        //public FileResult Download(string FileName)
-        //{
-        //    var FileVirtualPath = "~/UploadedFiles/" + FileName;
-        //    return File(FileVirtualPath, "application/forcedownload", Path.GetFileName(FileVirtualPath));
-        //}
-
-
     }
 }

@@ -357,8 +357,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\saasecom.card.form.js" />
-    <Content Include="UploadedFiles\Beadedleathercuff.jpg" />
-    <Content Include="UploadedFiles\Byzantinenecklace.jpg" />
     <Content Include="UploadedFiles\Crystalbirthstonebracelet.jpg" />
     <Content Include="UploadedFiles\Crystalcollar.jpg" />
     <Content Include="UploadedFiles\OldStNicksearrings.jpg" />
@@ -452,17 +450,6 @@
     <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\PremiumContent\Create.cshtml" />
     <Content Include="Views\PremiumContent\AddImage.cshtml" />
-    <Content Include="UploadedFiles\Anchorbracelet.jpg" />
-    <Content Include="UploadedFiles\Anchorbracelet.pdf" />
-    <Content Include="UploadedFiles\Awesomeearrings.jpg" />
-    <Content Include="UploadedFiles\Awesomeearrings.pdf" />
-    <Content Include="UploadedFiles\Beadedleathercuff.jpg" />
-    <Content Include="UploadedFiles\Beadedleathercuff.pdf" />
-    <Content Include="UploadedFiles\Brickstitchbracelet.jpg" />
-    <Content Include="UploadedFiles\Brickstitchbracelet.pdf" />
-    <Content Include="UploadedFiles\btest.pdf" />
-    <Content Include="UploadedFiles\Byzantinenecklace.jpg" />
-    <Content Include="UploadedFiles\Byzantinenecklace.pdf" />
     <Content Include="UploadedFiles\Crystalbirthstonebracelet.jpg" />
     <Content Include="UploadedFiles\Crystalbirthstonebracelet.pdf" />
     <Content Include="UploadedFiles\Crystalcollar.jpg" />
@@ -482,9 +469,6 @@
     <Content Include="UploadedFiles\OldStNicksearringspattern.pdf" />
     <Content Include="UploadedFiles\Sunflowerbracelet.pdf" />
     <Content Include="UploadedFiles\Crystalcollar.pdf" />
-    <Content Include="UploadedFiles\Byzantinenecklace.pdf" />
-    <Content Include="UploadedFiles\Anchorbracelet.pdf" />
-    <Content Include="UploadedFiles\Awesomeearrings.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
