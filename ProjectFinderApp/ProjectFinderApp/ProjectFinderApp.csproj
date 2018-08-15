@@ -361,6 +361,7 @@
     <Content Include="UploadedFiles\Awesomeearrings.jpg" />
     <Content Include="UploadedFiles\Beadedleathercuff.jpg" />
     <Content Include="UploadedFiles\Byzantinenecklace.jpg" />
+    <Content Include="UploadedFiles\Sandandsea.jpg" />
     <Content Include="UploadedFiles\Sunflowerbracelet.jpg" />
     <Content Include="UploadedFiles\Tatted Lace earrings hero.jpg" />
     <Content Include="Web.config">
@@ -456,6 +457,8 @@
     <Content Include="UploadedFiles\Anchorbracelet.pdf" />
     <Content Include="UploadedFiles\Sunflowerbracelet.pdf" />
     <Content Include="UploadedFiles\TattedLacejewelry.pdf" />
+    <Content Include="UploadedFiles\Sandandseakumihimonecklace.pdf" />
+    <Content Include="Views\RegisteredUser\LapseNotification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

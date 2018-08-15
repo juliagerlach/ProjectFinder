@@ -130,6 +130,17 @@ namespace ProjectFinderApp.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult LapseNotification(RegisteredUser registeredUser)
+        {
+            var currentUserId = User.Identity.GetUserId();
+            registeredUser.ApplicationUserID = currentUserId;
+
+
+
+            return View();
+        }
+
         // GET: RegisteredUsers/UpgradeSub
         //public ActionResult UpgradeSub()
         //{
