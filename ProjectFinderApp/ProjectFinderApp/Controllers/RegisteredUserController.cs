@@ -24,14 +24,26 @@ namespace ProjectFinderApp.Controllers
         {
             var currentUserId = User.Identity.GetUserId();
             if (currentUserId == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
             RegisteredUser registeredUser = db.RegisteredUsers.Where(r => r.ApplicationUserID == currentUserId).FirstOrDefault();
             if (registeredUser == null)
-            {
-                return HttpNotFound();
-            }
+                {
+                    return HttpNotFound();
+                }
+            else if (registeredUser != null)
+                {
+                    DateTime accessEnd = registeredUser.AccessEndDate;
+                    var accessDays = accessEnd - DateTime.Now;
+
+                    if (accessDays.Days < 3)
+                        {
+                            return RedirectToAction("LapseNotification");
+                                //ViewBag.Message = "Your 30-day trial ends soon. Subscribe now for continued access to The Bead Project Finder.";
+                        }
+                }
+
             return View(registeredUser);
         }
 
@@ -131,15 +143,26 @@ namespace ProjectFinderApp.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult LapseNotification(RegisteredUser registeredUser)
-        {
-            var currentUserId = User.Identity.GetUserId();
-            registeredUser.ApplicationUserID = currentUserId;
+        public ActionResult LapseNotification()
+        { 
+             //if (User.IsInRole("Registered User"))
+             //   {
+             //       var currentUserId = User.Identity.GetUserId();
+             //       var registeredUser = db.RegisteredUsers.Where(r => r.ApplicationUserID == currentUserId).FirstOrDefault();
 
+             //       if (registeredUser != null)
+             //       {
+             //           DateTime accessEnd = registeredUser.AccessEndDate;
+             //           var accessDays = accessEnd - DateTime.Now;
 
-
-            return View();
-        }
+             //           if (accessDays.Days< 3)
+             //           {
+             //               ViewBag.Message = "Your 30-day trial ends soon. Subscribe now for continued access to The Bead Project Finder.";
+             //           }
+             //       }
+             //   }
+                return View();
+            }
 
         // GET: RegisteredUsers/UpgradeSub
         //public ActionResult UpgradeSub()

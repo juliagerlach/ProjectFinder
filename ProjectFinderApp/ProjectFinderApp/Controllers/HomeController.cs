@@ -1,4 +1,6 @@
-﻿using Stripe;
+﻿using Microsoft.AspNet.Identity;
+using ProjectFinderApp.Models;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace ProjectFinderApp.Controllers
         {
             return View();
         }
+        
 
         public ActionResult About()
         {

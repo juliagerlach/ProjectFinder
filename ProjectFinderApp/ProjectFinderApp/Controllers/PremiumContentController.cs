@@ -22,20 +22,6 @@ namespace ProjectFinderApp.Controllers
             return View(db.PremiumContents.ToList());
         }
 
-        //public ActionResult UploadFiles(IEnumerable<HttpPostedFileBase> files)
-        //{
-        //    foreach (var file in files)
-        //    {
-        //        string filePath = Guid.NewGuid() + Path.GetExtension(file.FileName);
-        //        file.SaveAs(Path.Combine(Server.MapPath("~/UploadedFiles"), filePath));
-        //        //write code here to save info to db
-        //        //db.PremiumContents.Add(files);
-        //        //db.SaveChanges();
-        //        //return PartialView("detail");
-        //    }
-        //    return Json("file uploaded successfully");
-        //}
-
         public ActionResult Create()
         {
             return View();

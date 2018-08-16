@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ProjectFinderApp.Controllers
 {
+    [Authorize(Roles = "Admin,Subscriber")]
     public class CommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

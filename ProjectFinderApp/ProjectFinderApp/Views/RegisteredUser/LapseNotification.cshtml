@@ -1,8 +1,20 @@
 ﻿@model ProjectFinderApp.Models.RegisteredUser
-
+<br />
 @{
-    ViewBag.Title = "LapseNotification";
+    ViewBag.Title = "Free Trial Ending Soon";
 }
 
-<h2>LapseNotification</h2>
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+<div>
+    <p>
+        Your 30-day trial is expiring soon. Subscribe today for continued access to The Bead Project Finder.
+    </p>
+</div>
 
+<div>
+    @Html.ActionLink("Subscribe Now", "Create", "Subscriber") |
+    @Html.ActionLink("Maybe Later", "Index", "Home")
+
+</div>
